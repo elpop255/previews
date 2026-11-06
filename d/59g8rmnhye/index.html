@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Hk handyman and repairs — home builder</title>
+<meta name="description" content="Hk handyman and repairs — home builder for your home. Custom cabinets, trim and molding, decks, framing, doors and windows, and repairs. Sample preview page.">
+<style>
+  :root {
+    --paper: #faf6ee;
+    --paper-soft: #f2ebdd;
+    --ink: #2b2620;
+    --ink-soft: #6b5e4c;
+    --forest: #2e5339;
+    --forest-deep: #23402c;
+    --forest-wash: #e6ece4;
+    --oak: #b07c3f;
+    --oak-deep: #8a5f2c;
+    --line: #e2d7c3;
+    --danger: #a33a2a;
+    --danger-wash: #f7e8e4;
+    --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--forest-deep); }
+  :focus-visible { outline: 3px solid var(--oak); outline-offset: 2px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(2.1rem, 7vw, 3.4rem); }
+  h2 { font-size: clamp(1.5rem, 5vw, 2.1rem); }
+  p { max-width: 58ch; }
+
+  /* Memorable element: a carpenter's ruler tick strip */
+  .ruler {
+    height: 14px;
+    background-image:
+      repeating-linear-gradient(90deg, var(--oak-deep) 0 2px, transparent 2px 16px),
+      repeating-linear-gradient(90deg, var(--oak-deep) 0 2px, transparent 2px 80px);
+    background-size: 100% 7px, 100% 14px;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+  }
+
+  .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.25rem; }
+  section { scroll-margin-top: 4.5rem; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.6rem 1.5rem;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    font: 600 1rem var(--sans);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 160ms ease;
+  }
+  .btn-solid { background: var(--forest); color: #fdfcf8; }
+  .btn-solid:hover { background: var(--forest-deep); }
+  .btn-wood { background: var(--oak); color: #241a0d; }
+  .btn-wood:hover { background: var(--oak-deep); color: #fdfcf8; }
+
+  /* Header */
+  .site-head {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-head .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; min-height: 4rem;
+  }
+  .brand {
+    font-family: var(--serif); font-weight: 700; font-size: 1.15rem;
+    color: var(--ink); text-decoration: none; white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  .brand span { color: var(--oak-deep); }
+
+  /* Hero */
+  .hero { padding: 2.5rem 0 3rem; }
+  .hero-grid { display: grid; gap: 2rem; }
+  .kicker {
+    font: 600 0.95rem var(--sans); color: var(--oak-deep); margin-bottom: 0.75rem;
+  }
+  .hero p.lede { font-size: 1.1rem; color: var(--ink-soft); margin: 1rem 0 1.75rem; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .hero .ruler { margin-top: 2rem; max-width: 26rem; }
+  .hero-photo {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: var(--paper-soft);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .photo-note {
+    position: absolute; right: 0.75rem; bottom: 0.75rem;
+    background: var(--paper); color: var(--ink-soft);
+    font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 2px;
+    border: 1px solid var(--line);
+  }
+  figure { position: relative; }
+  figcaption { margin-top: 0.5rem; font-size: 0.85rem; color: var(--ink-soft); }
+
+  /* Services — ruled list, not cards */
+  .services { padding: 3rem 0; border-top: 1px solid var(--line); }
+  .services > p { color: var(--ink-soft); margin: 0.5rem 0 2rem; }
+  .service-list { list-style: none; border-top: 1px solid var(--line); }
+  .service-list li {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0.25rem 1rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .service-list .no {
+    font-family: var(--serif); color: var(--oak-deep); font-size: 1.05rem; line-height: 1.7;
+  }
+  .service-list h3 { font-size: 1.2rem; }
+  .service-list p { color: var(--ink-soft); font-size: 0.95rem; }
+
+  /* Work */
+  .work { padding: 3rem 0; border-top: 1px solid var(--line); }
+  .work-grid { display: grid; gap: 1.5rem; margin-top: 2rem; }
+  .work-grid figure .frame {
+    aspect-ratio: 3 / 2; overflow: hidden; border-radius: 6px;
+    background: var(--paper-soft); border: 1px solid var(--line);
+  }
+  .work-grid img { width: 100%; height: 100%; object-fit: cover; }
+  .work-grid .tall .frame { aspect-ratio: 4 / 5; }
+
+  /* How it works */
+  .how { padding: 3rem 0; border-top: 1px solid var(--line); background: var(--paper-soft); }
+  .how ol { list-style: none; margin-top: 2rem; position: relative; }
+  .how li {
+    position: relative; padding: 0 0 2rem 3.5rem; max-width: 40rem;
+  }
+  .how li::before {
+    content: "";
+    position: absolute; left: 1.05rem; top: 2.4rem; bottom: 0.4rem;
+    border-left: 2px dotted var(--oak);
+  }
+  .how li:last-child { padding-bottom: 0; }
+  .how li:last-child::before { display: none; }
+  .how .n {
+    position: absolute; left: 0; top: 0;
+    width: 2.2rem; height: 2.2rem; border-radius: 50%;
+    background: var(--forest); color: #fdfcf8;
+    font: 700 0.95rem/2.2rem var(--sans); text-align: center;
+  }
+  .how h3 { font-size: 1.15rem; }
+  .how p { color: var(--ink-soft); font-size: 0.95rem; margin-top: 0.25rem; }
+
+  /* Booking */
+  .booking { padding: 3rem 0; border-top: 1px solid var(--line); }
+  .booking > p { color: var(--ink-soft); margin: 0.5rem 0 2rem; }
+  form { max-width: 34rem; }
+  .field { margin-bottom: 1.25rem; }
+  label { display: block; font-weight: 600; margin-bottom: 0.35rem; }
+  label small { font-weight: 400; color: var(--ink-soft); }
+  input, select, textarea {
+    width: 100%; min-height: 48px;
+    padding: 0.65rem 0.75rem;
+    font: 1rem var(--sans); color: var(--ink);
+    background: #fffdf8; border: 1px solid var(--line); border-radius: 3px;
+  }
+  textarea { min-height: 7rem; resize: vertical; }
+  input:focus, select:focus, textarea:focus { border-color: var(--forest); }
+  .err { display: none; margin-top: 0.35rem; font-size: 0.88rem; color: var(--danger); }
+  .invalid .err { display: block; }
+  .invalid input, .invalid select, .invalid textarea { border-color: var(--danger); background: var(--danger-wash); }
+  .form-note {
+    display: none; margin-top: 1.25rem; padding: 0.9rem 1rem;
+    background: var(--forest-wash); border: 1px solid var(--forest);
+    border-radius: 3px; color: var(--forest-deep); font-weight: 600;
+  }
+  .form-note.show { display: block; }
+
+  /* Contact strip */
+  .contact {
+    background: var(--forest); color: #f2f5ef;
+    padding: 2.25rem 0;
+  }
+  .contact .wrap {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .contact p { max-width: none; font-family: var(--serif); font-size: 1.25rem; }
+  .contact a { color: #fdfcf8; }
+
+  footer { padding: 2rem 0 2.5rem; }
+  footer p { font-size: 0.88rem; color: var(--ink-soft); }
+  footer .ruler { margin-bottom: 1.5rem; max-width: 14rem; height: 10px; background-size: 100% 5px, 100% 10px; }
+
+  @media (min-width: 720px) {
+    .hero-grid { grid-template-columns: 1fr 1fr; align-items: center; }
+    .service-list li {
+      grid-template-columns: 2.5rem 1fr 1.4fr; align-items: baseline;
+      gap: 1rem;
+    }
+    .work-grid { grid-template-columns: 1fr 1fr 1fr; align-items: end; }
+    .work-grid .tall .frame { aspect-ratio: 3 / 2; }
+    .work-grid figure:nth-child(2) { transform: translateY(-1.5rem); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body id="top">
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top">Hk handyman and repairs<span> ·</span></a>
+    <a class="btn btn-solid" href="tel:+17134239224">Call now</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">Carpentry, done carefully</p>
+        <h1>Woodwork that fits your home, down to the inch.</h1>
+        <p class="lede">Custom home builder — cabinets, trim, decks and repairs, planned with you and built to last.</p>
+        <div class="hero-cta">
+          <a class="btn btn-wood" href="#booking">Book a visit</a>
+        </div>
+        <div class="ruler" aria-hidden="true"></div>
+      </div>
+      <figure class="hero-photo">
+        <img src="https://elpop255.github.io/previews/templates/carpentry/img/hero.jpg" alt="A finished oak staircase with white risers in a bright hallway" width="1400" height="882" onerror="this.style.display='none'">
+        <span class="photo-note">Sample photo</span>
+      </figure>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <h2>What we build</h2>
+      <p>Sample list of typical home builder work. Swap in the services this shop actually offers.</p>
+      <ul class="service-list">
+        <li>
+          <span class="no" aria-hidden="true">01</span>
+          <h3>Custom cabinets</h3>
+          <p>Built to fit your kitchen, bath or closet, measured to the inch.</p>
+        </li>
+        <li>
+          <span class="no" aria-hidden="true">02</span>
+          <h3>Trim and molding</h3>
+          <p>Crown, base and casing that finish a room cleanly.</p>
+        </li>
+        <li>
+          <span class="no" aria-hidden="true">03</span>
+          <h3>Decks</h3>
+          <p>New decks and deck work, from footings to the last board.</p>
+        </li>
+        <li>
+          <span class="no" aria-hidden="true">04</span>
+          <h3>Framing</h3>
+          <p>Straight, square framing for walls, openings and small additions.</p>
+        </li>
+        <li>
+          <span class="no" aria-hidden="true">05</span>
+          <h3>Doors and windows</h3>
+          <p>Fitted, hung and trimmed so they open, close and seal right.</p>
+        </li>
+        <li>
+          <span class="no" aria-hidden="true">06</span>
+          <h3>Repairs</h3>
+          <p>Sticking doors, loose stairs, rotted boards — fixed properly.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="work" id="work">
+    <div class="wrap">
+      <h2>Recent work</h2>
+      <div class="work-grid">
+        <figure>
+          <div class="frame">
+            <img src="https://elpop255.github.io/previews/templates/carpentry/img/work-1.jpg" alt="Floor-to-ceiling oak built-in shelves around a fireplace" width="1100" height="836" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <figcaption>Built-in shelves</figcaption>
+        </figure>
+        <figure class="tall">
+          <div class="frame">
+            <img src="https://elpop255.github.io/previews/templates/carpentry/img/work-2.jpg" alt="A wooden workbench with hand planes and chisels and wood shavings" width="1100" height="836" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <figcaption>At the bench</figcaption>
+        </figure>
+        <figure>
+          <div class="frame">
+            <img src="https://elpop255.github.io/previews/templates/carpentry/img/work-3.jpg" alt="A finished cedar deck in warm evening light" width="1100" height="836" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <figcaption>Backyard deck</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <ol>
+        <li>
+          <span class="n" aria-hidden="true">1</span>
+          <h3>You reach out</h3>
+          <p>Send the form below or give us a call and describe the project in a sentence or two.</p>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">2</span>
+          <h3>We visit and measure</h3>
+          <p>We walk the space with you, take measurements and talk through the options.</p>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">3</span>
+          <h3>We agree on a plan</h3>
+          <p>You get a clear scope in writing before any work starts, then we build it.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="booking" id="booking">
+    <div class="wrap">
+      <h2>Book a visit</h2>
+      <p>Tell us a little about the project and the day that suits you. Sample form — this preview does not send anything.</p>
+      <form id="book-form" novalidate>
+        <div class="field" data-field="name">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+          <p class="err" id="e-name">Please enter your name.</p>
+        </div>
+        <div class="field" data-field="phone">
+          <label for="f-phone">Phone number</label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(713) 555-0000" required>
+          <p class="err" id="e-phone">Please enter a phone number we can reach you at.</p>
+        </div>
+        <div class="field" data-field="day">
+          <label for="f-day">Preferred day</label>
+          <select id="f-day" name="day" required>
+            <option value="">Choose a day…</option>
+            <option value="monday">Monday</option>
+            <option value="tuesday">Tuesday</option>
+            <option value="wednesday">Wednesday</option>
+            <option value="thursday">Thursday</option>
+            <option value="friday">Friday</option>
+            <option value="saturday">Saturday</option>
+            <option value="flexible">Flexible — any day</option>
+          </select>
+          <p class="err" id="e-day">Please pick a day that suits you.</p>
+        </div>
+        <div class="field" data-field="message">
+          <label for="f-message">Short message <small>(optional)</small></label>
+          <textarea id="f-message" name="message" maxlength="600"></textarea>
+          <p class="err" id="e-message">Message looks too long — please shorten it.</p>
+        </div>
+        <button class="btn btn-solid" type="submit">Request booking</button>
+        <p class="form-note" id="form-note" role="status">Preview only. Nothing was sent.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<section class="contact">
+  <div class="wrap">
+    <p>Prefer to talk it through?</p>
+    <a class="btn btn-wood" href="tel:+17134239224">(713) 423-9224</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ruler" aria-hidden="true"></div>
+    <p>Design preview made for Hk handyman and repairs. Sample text and photos. This is not their official website.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var form = document.getElementById("book-form");
+    var note = document.getElementById("form-note");
+
+    function setState(key, ok) {
+      var box = form.querySelector('[data-field="' + key + '"]');
+      if (box) box.classList.toggle("invalid", !ok);
+      var input = form.querySelector('[name="' + key + '"]');
+      if (input) input.setAttribute("aria-invalid", ok ? "false" : "true");
+    }
+
+    function validate() {
+      var ok = true, firstBad = null;
+      var name = form.name.value.trim();
+      var digits = form.phone.value.replace(/\D/g, "");
+      var day = form.day.value;
+      var msg = form.message.value;
+
+      var nameOk = name.length >= 2;
+      var phoneOk = digits.length >= 7 && digits.length <= 15;
+      var dayOk = day !== "";
+      var msgOk = msg.length <= 600;
+
+      setState("name", nameOk);
+      setState("phone", phoneOk);
+      setState("day", dayOk);
+      setState("message", msgOk);
+
+      [["name", nameOk], ["phone", phoneOk], ["day", dayOk], ["message", msgOk]].forEach(function (pair) {
+        if (!pair[1]) {
+          ok = false;
+          if (!firstBad) firstBad = form[pair[0]];
+        }
+      });
+      if (firstBad) firstBad.focus();
+      return ok;
+    }
+
+    ["name", "phone", "day"].forEach(function (key) {
+      form[key].addEventListener("input", function () { setState(key, true); });
+    });
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (!validate()) return;
+      note.classList.add("show");
+      form.querySelectorAll("input, select, textarea, button").forEach(function (el) {
+        if (el.type !== "submit") el.value = "";
+      });
+      note.scrollIntoView({ block: "nearest" });
+    });
+  })();
+</script>
+</body>
+</html>
