@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>{{NAME}} — {{TRADE}}</title>
+<meta name="description" content="Sample one-page preview for {{NAME}}, a {{TRADE}} business. Leak repair, drain cleaning, water heater service and more.">
+<style>
+  :root {
+    --ink: #12283a;          /* deep water blue, main text */
+    --ink-soft: #3d566b;     /* secondary text */
+    --paper: #f6f9fb;        /* page background */
+    --white: #ffffff;
+    --water: #155a80;        /* water blue, primary actions */
+    --water-wash: #e3eef5;   /* light water tint */
+    --copper: #b26a3c;       /* copper accent */
+    --copper-deep: #8a4a24;  /* darker copper */
+    --copper-bright: #d98e5f;
+    --line: #d5e2ea;         /* hairlines */
+    --photo-bg: #9db9c8;     /* fallback if a photo fails to load */
+    --focus: #0a3a55;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  a { color: var(--water); }
+  a:hover { color: var(--copper-deep); }
+
+  .wrap {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+
+  .measure { max-width: 62ch; }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--white);
+    border-bottom: 3px solid var(--copper);
+  }
+  .site-header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 3.75rem;
+  }
+  .brand {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--ink);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 44px;
+  }
+  .brand-mark {
+    width: 0.85rem;
+    height: 1.55rem;
+    border-radius: 0.45rem;
+    background: var(--copper);
+    flex: none;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--water);
+    color: var(--white);
+  }
+  .btn-primary:hover { background: var(--ink); color: var(--white); }
+  .btn-copper {
+    background: var(--copper);
+    color: var(--white);
+  }
+  .btn-copper:hover { background: var(--copper-deep); color: var(--white); }
+  .btn-ghost {
+    border-color: var(--water);
+    color: var(--water);
+    background: transparent;
+  }
+  .btn-ghost:hover { background: var(--water-wash); color: var(--ink); }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 2.5rem 0 3.5rem; }
+  .hero-grid { display: grid; gap: 2rem; }
+  .hero h1 {
+    font-size: clamp(1.9rem, 5vw, 3rem);
+    line-height: 1.15;
+    margin: 0.9rem 0 0;
+    letter-spacing: -0.02em;
+  }
+  .hero-tag {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    margin: 1rem 0 0;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.6rem;
+  }
+  /* The memorable element: a copper pipe bar across the photo with a slow
+     copper drip falling from it. */
+  .pipe-stage { position: relative; }
+  .pipe-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 3rem;
+    height: 0.85rem;
+    background: var(--copper);
+    border-radius: 0.45rem;
+    box-shadow: 0 2px 0 var(--copper-deep);
+    pointer-events: none;
+  }
+  .drip {
+    position: absolute;
+    top: 3.9rem;
+    left: 18%;
+    width: 0.7rem;
+    height: 0.95rem;
+    background: var(--copper);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    pointer-events: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .drip { animation: drip 2.6s ease-in infinite; }
+    @keyframes drip {
+      0%   { transform: translateY(0) scaleY(0.7); opacity: 0; }
+      12%  { opacity: 1; }
+      60%  { transform: translateY(5.5rem) scaleY(1); opacity: 1; }
+      75%  { transform: translateY(7.2rem) scaleY(1.25); opacity: 0; }
+      100% { transform: translateY(7.2rem); opacity: 0; }
+    }
+  }
+  .photo-frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: var(--photo-bg);
+    border: 1px solid var(--line);
+  }
+  .photo-frame img { display: block; width: 100%; height: auto; }
+  .photo-frame.img-failed img { display: none; }
+  .photo-frame.img-failed::after {
+    content: "Photo unavailable in this preview";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    font-size: 0.9rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  .hero .photo-frame { aspect-ratio: 4 / 3; }
+  .hero .photo-frame img { height: 100%; object-fit: cover; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 3.25rem 0; }
+  section + section { border-top: 1px solid var(--line); }
+  h2 {
+    font-size: clamp(1.45rem, 3.5vw, 2rem);
+    line-height: 1.25;
+    margin: 0 0 1.4rem;
+    letter-spacing: -0.01em;
+  }
+  .sec-intro { color: var(--ink-soft); margin: -0.6rem 0 1.8rem; }
+
+  /* Services: copper-numbered list, not cards */
+  .service-list { list-style: none; margin: 0; padding: 0; max-width: 62rem; }
+  .service-list li {
+    display: grid;
+    grid-template-columns: 3.2rem 1fr;
+    gap: 0.4rem 1.1rem;
+    padding: 1.05rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .service-list li:last-child { border-bottom: 1px solid var(--line); }
+  .service-num {
+    grid-row: span 2;
+    align-self: start;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--copper);
+    font-variant-numeric: tabular-nums;
+  }
+  .service-list h3 { margin: 0; font-size: 1.12rem; }
+  .service-list p { margin: 0; color: var(--ink-soft); }
+
+  /* Gallery */
+  .gallery { display: grid; gap: 1.4rem; max-width: 62rem; }
+  .gallery figure { margin: 0; }
+  .gallery .photo-frame { aspect-ratio: 4 / 3; }
+  .gallery .photo-frame img { height: 100%; object-fit: cover; }
+  .gallery figcaption { font-size: 0.95rem; color: var(--ink-soft); margin-top: 0.55rem; }
+
+  /* How it works */
+  .steps { counter-reset: step; list-style: none; margin: 0; padding: 0; max-width: 60rem; }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 1.15rem 0 1.15rem 3.4rem;
+    border-top: 1px solid var(--line);
+  }
+  .steps li:last-child { border-bottom: 1px solid var(--line); }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 1.35rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--water-wash);
+    border: 2px solid var(--copper);
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .steps h3 { margin: 0; font-size: 1.12rem; }
+  .steps p { margin: 0.3rem 0 0; color: var(--ink-soft); }
+
+  /* Booking form */
+  .booking {
+    background: var(--white);
+    border-top: 3px solid var(--copper);
+  }
+  .form-wrap { max-width: 34rem; }
+  .field { margin-bottom: 1.15rem; }
+  label { display: block; font-weight: 600; margin-bottom: 0.35rem; }
+  .req { color: var(--copper-deep); }
+  input, select, textarea {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.6rem 0.75rem;
+    font: inherit;
+    color: var(--ink);
+    background: var(--white);
+    border: 1.5px solid var(--line);
+    border-radius: 0.6rem;
+  }
+  textarea { min-height: 6.5rem; resize: vertical; }
+  input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 1px;
+    border-color: var(--water);
+  }
+  .field .error {
+    display: block;
+    color: var(--copper-deep);
+    font-size: 0.92rem;
+    font-weight: 600;
+    min-height: 1.3em;
+    margin-top: 0.3rem;
+  }
+  input[aria-invalid="true"], select[aria-invalid="true"] {
+    border-color: var(--copper-deep);
+    background: #fdf6f1;
+  }
+  .form-note { font-size: 0.95rem; color: var(--ink-soft); margin-top: 0.4rem; }
+  .sent {
+    margin-top: 1rem;
+    padding: 0.8rem 1rem;
+    border-left: 4px solid var(--copper);
+    background: var(--water-wash);
+    border-radius: 0.4rem;
+    font-weight: 600;
+  }
+  .sent[hidden] { display: none; }
+
+  /* Contact strip */
+  .contact-strip { background: var(--ink); color: var(--white); }
+  .contact-strip .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+  }
+  .contact-strip h2 { margin: 0; font-size: 1.25rem; }
+  .contact-phone {
+    color: var(--copper-bright);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .contact-phone:hover { color: var(--white); }
+
+  footer {
+    padding: 2rem 0 2.5rem;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  footer p { margin: 0; max-width: 70ch; }
+
+  /* ---------- Breakpoints ---------- */
+  @media (min-width: 46rem) {
+    .hero-grid { grid-template-columns: 1fr 1.1fr; align-items: center; }
+    .service-list li { grid-template-columns: 3.2rem 1fr 1.6fr; align-items: baseline; }
+    .service-list p { margin-top: 0.2rem; }
+    .gallery { grid-template-columns: repeat(3, 1fr); }
+    .gallery li:nth-child(2) { transform: translateY(1.1rem); }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>{{NAME}}</a>
+    <a class="btn btn-copper" href="tel:{{PHONE_TEL}}">Call now</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 id="hero-h">When water has other plans, call a plumber you can reach.</h1>
+        <p class="hero-tag measure">A local {{TRADE}} for the jobs that can't wait: leaks, clogs, heaters and fixtures. Sample text — book a visit below.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#book">Book a visit</a>
+          <a class="btn btn-ghost" href="tel:{{PHONE_TEL}}">{{PHONE_DISPLAY}}</a>
+        </div>
+      </div>
+      <div class="pipe-stage">
+        <div class="pipe-bar" aria-hidden="true"></div>
+        <div class="drip" aria-hidden="true"></div>
+        <div class="photo-frame">
+          <img src="{{ASSETS}}/hero.jpg" alt="Copper pipes and shut-off valves neatly installed under a sink" width="1600" height="1024">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" aria-labelledby="services-h">
+    <div class="wrap">
+      <h2 id="services-h">What we handle</h2>
+      <p class="sec-intro measure">Six everyday jobs, one call. Sample descriptions.</p>
+      <ul class="service-list">
+        <li>
+          <span class="service-num" aria-hidden="true">01</span>
+          <h3>Leak repair</h3>
+          <p>Sample text about finding and fixing dripping pipes and joints.</p>
+        </li>
+        <li>
+          <span class="service-num" aria-hidden="true">02</span>
+          <h3>Drain cleaning</h3>
+          <p>Sample text about clearing slow or blocked sinks and showers.</p>
+        </li>
+        <li>
+          <span class="service-num" aria-hidden="true">03</span>
+          <h3>Water heater service</h3>
+          <p>Sample text about keeping your hot water steady and reliable.</p>
+        </li>
+        <li>
+          <span class="service-num" aria-hidden="true">04</span>
+          <h3>Fixture installation</h3>
+          <p>Sample text about fitting faucets, showers and sinks properly.</p>
+        </li>
+        <li>
+          <span class="service-num" aria-hidden="true">05</span>
+          <h3>Pipe repair</h3>
+          <p>Sample text about repairing or replacing worn pipe sections.</p>
+        </li>
+        <li>
+          <span class="service-num" aria-hidden="true">06</span>
+          <h3>Toilet repair</h3>
+          <p>Sample text about fixing running, clogged or wobbling toilets.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <h2 id="work-h">On the job</h2>
+      <p class="sec-intro measure">A few sample photos of the kind of work this page is about.</p>
+      <ul class="gallery" style="list-style:none; margin:0; padding:0;">
+        <li>
+          <figure>
+            <div class="photo-frame">
+              <img src="{{ASSETS}}/work-1.jpg" alt="Copper kitchen faucet over a stainless steel sink" loading="lazy" width="1200" height="912">
+            </div>
+            <figcaption>Kitchen faucet — sample gallery photo.</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <div class="photo-frame">
+              <img src="{{ASSETS}}/work-2.jpg" alt="Water heater connected to copper supply pipes" loading="lazy" width="1200" height="912">
+            </div>
+            <figcaption>Water heater — sample gallery photo.</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <div class="photo-frame">
+              <img src="{{ASSETS}}/work-3.jpg" alt="Bathroom sink and shower fixtures in copper tones" loading="lazy" width="1200" height="912">
+            </div>
+            <figcaption>Bathroom fixtures — sample gallery photo.</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <h2 id="how-h">How it works</h2>
+      <p class="sec-intro measure">Three simple steps, described with sample text.</p>
+      <ol class="steps">
+        <li>
+          <h3>You reach out</h3>
+          <p>Sample text: tell us what's going on with a call or the form below.</p>
+        </li>
+        <li>
+          <h3>We take a look</h3>
+          <p>Sample text: the job is checked and explained before work begins.</p>
+        </li>
+        <li>
+          <h3>It gets fixed</h3>
+          <p>Sample text: the repair is finished and the space is left clean.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="booking" id="book" aria-labelledby="book-h">
+    <div class="wrap">
+      <h2 id="book-h">Book a visit</h2>
+      <p class="sec-intro measure">This form is a preview. Nothing is sent or stored anywhere.</p>
+      <form id="booking-form" class="form-wrap" novalidate>
+        <div class="field">
+          <label for="f-name">Name <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+          <span class="error" id="e-name" role="alert"></span>
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" required aria-describedby="e-phone">
+          <span class="error" id="e-phone" role="alert"></span>
+        </div>
+        <div class="field">
+          <label for="f-day">Preferred day <span class="req" aria-hidden="true">*</span></label>
+          <select id="f-day" name="day" required aria-describedby="e-day">
+            <option value="">Choose a day…</option>
+            <option>Any weekday</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+          </select>
+          <span class="error" id="e-day" role="alert"></span>
+        </div>
+        <div class="field">
+          <label for="f-msg">Short message</label>
+          <textarea id="f-msg" name="message" maxlength="500"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Request booking</button>
+        <p class="form-note">Sample form for the design preview.</p>
+        <p class="sent" id="sent-note" hidden>Preview only. Nothing was sent.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<div class="contact-strip" aria-label="Contact">
+  <div class="wrap">
+    <h2>Talk to {{NAME}}</h2>
+    <a class="contact-phone" href="tel:{{PHONE_TEL}}">{{PHONE_DISPLAY}}</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>Design preview made for {{NAME}}. Sample text and photos. This is not their official website.</p>
+  </div>
+</footer>
+
+<script>
+  // Solid-color fallback if a photo fails to load.
+  document.querySelectorAll('.photo-frame img').forEach(function (img) {
+    function markFailed() { img.closest('.photo-frame').classList.add('img-failed'); }
+    if (img.complete && img.naturalWidth === 0) { markFailed(); }
+    img.addEventListener('error', markFailed);
+  });
+
+  // Preview-only form: validate, then show the inline note. No network, no storage.
+  (function () {
+    var form = document.getElementById('booking-form');
+    var note = document.getElementById('sent-note');
+    var fields = [
+      { el: document.getElementById('f-name'),  err: document.getElementById('e-name'),
+        messages: { empty: 'Please enter your name.' } },
+      { el: document.getElementById('f-phone'), err: document.getElementById('e-phone'),
+        messages: {
+          empty: 'Please enter a phone number.',
+          bad: 'Please enter a valid phone number, like (713) 555-0123.'
+        } },
+      { el: document.getElementById('f-day'),   err: document.getElementById('e-day'),
+        messages: { empty: 'Please choose a preferred day.' } }
+    ];
+    var phoneRe = /^[+()0-9.\-\s]{7,20}$/;
+
+    function setError(field, message) {
+      field.err.textContent = message || '';
+      if (message) {
+        field.el.setAttribute('aria-invalid', 'true');
+      } else {
+        field.el.removeAttribute('aria-invalid');
+      }
+    }
+
+    function validateField(field) {
+      var value = field.el.value.trim();
+      if (!value) { setError(field, field.messages.empty); return false; }
+      if (field.messages.bad && !phoneRe.test(value)) {
+        setError(field, field.messages.bad); return false;
+      }
+      setError(field, '');
+      return true;
+    }
+
+    fields.forEach(function (field) {
+      field.el.addEventListener('input', function () {
+        if (field.err.textContent) { validateField(field); }
+      });
+      field.el.addEventListener('change', function () {
+        if (field.err.textContent) { validateField(field); }
+      });
+    });
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var ok = true;
+      var firstBad = null;
+      fields.forEach(function (field) {
+        if (!validateField(field)) { ok = false; if (!firstBad) { firstBad = field.el; } }
+      });
+      note.hidden = true;
+      if (!ok) { firstBad.focus(); return; }
+      note.hidden = false;
+      form.reset();
+      fields.forEach(function (field) { setError(field, ''); });
+    });
+  })();
+</script>
+
+</body>
+</html>

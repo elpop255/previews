@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>{{NAME}} — {{TRADE}}</title>
+<meta name="description" content="Preview website for {{NAME}}, a local {{TRADE}} business.">
+<style>
+  :root {
+    --paper: #f2f1ee;
+    --paper-deep: #e7e5e0;
+    --ink: #23272e;
+    --ink-soft: #4a5058;
+    --slate: #3a414c;
+    --slate-deep: #262b33;
+    --brick: #9e3a2a;
+    --brick-deep: #7f2e21;
+    --line: #c9c6c0;
+    --radius: 6px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 17px;
+  }
+  :focus-visible {
+    outline: 3px solid var(--brick);
+    outline-offset: 2px;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+
+  .wrap {
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+  .narrow { max-width: 60ch; }
+
+  /* ---- sticky header ---- */
+  .site-head {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--slate-deep);
+    color: #f5f4f1;
+    border-bottom: 4px solid var(--brick);
+  }
+  .site-head .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 64px;
+    flex-wrap: wrap;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .brand {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    color: #f5f4f1;
+    padding: 0.5rem 0;
+  }
+  .btn {
+    display: inline-block;
+    min-height: 44px;
+    padding: 0.65rem 1.4rem;
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 1.3;
+    transition: background-color 0.15s ease;
+  }
+  .btn-brick { background: var(--brick); color: #fdfaf7; }
+  .btn-brick:hover { background: var(--brick-deep); }
+  .btn-outline { background: transparent; color: inherit; border-color: currentColor; }
+  .btn-outline:hover { background: rgba(255,255,255,0.08); }
+  .btn-slate { background: var(--slate-deep); color: #fdfaf7; }
+  .btn-slate:hover { background: var(--ink); }
+
+  /* ---- shingle band: the one memorable element ---- */
+  .shingle-band {
+    height: 22px;
+    background: var(--brick);
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        var(--brick) 0 34px,
+        var(--brick-deep) 34px 72px
+      );
+    background-size: 72px 100%;
+    background-repeat: repeat-x;
+    position: relative;
+  }
+  .shingle-band::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 34px,
+        var(--brick-deep) 34px 36px,
+        transparent 36px 72px
+      );
+  }
+  .shingle-band-thin { height: 14px; }
+
+  /* ---- hero ---- */
+  .hero { padding: 2.75rem 0 3rem; }
+  .hero h1 {
+    font-size: clamp(1.9rem, 5.5vw, 3.1rem);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    max-width: 22ch;
+  }
+  .hero .sub {
+    margin-top: 0.9rem;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+  }
+  .hero .btn { margin-top: 1.5rem; }
+  .hero-photo {
+    margin-top: 2.25rem;
+    background: var(--slate-deep);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .hero-photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+
+  /* ---- sections ---- */
+  section { padding: 3rem 0; }
+  .head-slate {
+    background: var(--paper-deep);
+    border-top: 1px solid var(--line);
+  }
+  h2 {
+    font-size: clamp(1.4rem, 3.6vw, 1.9rem);
+    letter-spacing: -0.01em;
+    margin-bottom: 1.25rem;
+    max-width: 30ch;
+  }
+  .intro { color: var(--ink-soft); margin-bottom: 1.75rem; }
+
+  /* ---- services: uneven ledger rows, not a card grid ---- */
+  .ledger { list-style: none; border-top: 2px solid var(--slate-deep); }
+  .ledger li {
+    display: grid;
+    grid-template-columns: 3.5rem 1fr;
+    gap: 0.25rem 1rem;
+    padding: 1.1rem 0 1.25rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .ledger .no {
+    font-weight: 800;
+    font-size: 1.35rem;
+    color: var(--brick);
+    font-variant-numeric: tabular-nums;
+  }
+  .ledger h3 { font-size: 1.12rem; margin-bottom: 0.2rem; }
+  .ledger p { color: var(--ink-soft); max-width: 58ch; }
+  @media (min-width: 640px) {
+    .ledger li { grid-template-columns: 4rem 16rem 1fr; align-items: baseline; }
+  }
+
+  /* ---- gallery ---- */
+  .shots {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .shots { grid-template-columns: 1.6fr 1fr; }
+    .shots figure:nth-child(3) { grid-column: 1 / -1; }
+  }
+  .shots figure {
+    background: var(--slate-deep);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .shots img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .shots figcaption {
+    padding: 0.7rem 1rem;
+    font-size: 0.92rem;
+    color: #dcdbd7;
+    border-top: 3px solid var(--brick);
+  }
+
+  /* ---- how it works ---- */
+  .steps { list-style: none; counter-reset: step; }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 0 0 1.75rem 3.5rem;
+    border-left: 2px solid var(--slate-deep);
+    margin-left: 1rem;
+  }
+  .steps li:last-child { border-left-color: transparent; padding-bottom: 0; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: -1.15rem;
+    top: 0;
+    width: 2.15rem;
+    height: 2.15rem;
+    border-radius: 50%;
+    background: var(--brick);
+    color: #fdfaf7;
+    font-weight: 800;
+    display: grid;
+    place-items: center;
+  }
+  .steps h3 { font-size: 1.1rem; margin-bottom: 0.2rem; }
+  .steps p { color: var(--ink-soft); max-width: 56ch; }
+
+  /* ---- booking ---- */
+  .booking-box {
+    background: var(--slate-deep);
+    color: #f0efec;
+    border-radius: var(--radius);
+    padding: 1.75rem 1.25rem;
+  }
+  @media (min-width: 640px) { .booking-box { padding: 2.25rem; } }
+  .booking-box h2 { color: #fdfaf7; }
+  .booking-box .intro { color: #b9b8b3; }
+  .field { margin-bottom: 1.15rem; }
+  .field label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    font-size: 0.98rem;
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    min-height: 46px;
+    font: inherit;
+    color: var(--ink);
+    background: #fbfaf8;
+    border: 2px solid var(--paper-deep);
+    border-radius: var(--radius);
+    padding: 0.55rem 0.75rem;
+  }
+  .field textarea { min-height: 110px; resize: vertical; }
+  .field input:focus-visible,
+  .field select:focus-visible,
+  .field textarea:focus-visible {
+    outline: 3px solid var(--brick);
+    outline-offset: 1px;
+    border-color: #fbfaf8;
+  }
+  .field .err {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #ffb4a6;
+    min-height: 1.3em;
+  }
+  .field.invalid input,
+  .field.invalid select,
+  .field.invalid textarea {
+    border-color: var(--brick);
+    background: #fdf2ef;
+  }
+  .form-note {
+    margin-top: 1rem;
+    display: none;
+    font-weight: 700;
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius);
+    background: var(--brick);
+    color: #fdfaf7;
+    border-left: 5px solid var(--brick-deep);
+  }
+  .form-note.show { display: block; }
+  @media (prefers-reduced-motion: no-preference) {
+    .form-note.show { animation: rise 0.25s ease-out; }
+    @keyframes rise { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; } }
+  }
+
+  /* ---- contact strip ---- */
+  .contact-strip {
+    background: var(--brick);
+    color: #fdfaf7;
+    padding: 1.5rem 0;
+  }
+  .contact-strip .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .contact-strip .phone {
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    color: #fdfaf7;
+    padding: 0.5rem 0;
+  }
+  .contact-strip .phone:hover { text-decoration: underline; }
+
+  /* ---- footer ---- */
+  footer {
+    background: var(--slate-deep);
+    color: #b9b8b3;
+    padding: 1.75rem 0;
+    font-size: 0.95rem;
+  }
+  footer p { max-width: 70ch; }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top">{{NAME}}</a>
+    <a class="btn btn-brick" href="tel:{{PHONE_TEL}}">Call now</a>
+  </div>
+</header>
+
+<div class="shingle-band" id="top" aria-hidden="true"></div>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+      <h1>A roof over your head that stays put, season after season.</h1>
+      <p class="sub">Shingle work, flashing and gutters, inspections and leak repair — one local {{TRADE}} crew, plain answers.</p>
+      <a class="btn btn-slate" href="#booking">Book a visit</a>
+      <figure class="hero-photo">
+        <img src="{{ASSETS}}/hero.jpg" alt="Slate grey shingled roof at golden hour" width="1024" height="1024" onerror="this.remove()">
+      </figure>
+    </div>
+  </section>
+
+  <section class="head-slate" id="services">
+    <div class="wrap">
+      <h2>What we do</h2>
+      <p class="intro narrow">Six everyday jobs, done the sturdy way.</p>
+      <ul class="ledger">
+        <li>
+          <span class="no" aria-hidden="true">01</span>
+          <h3>Roof repair</h3>
+          <p>Patching trouble spots so a small issue stays small.</p>
+        </li>
+        <li>
+          <span class="no" aria-hidden="true">02</span>
+          <h3>Roof replacement</h3>
+          <p>A full tear-off and re-shingle, start to cleanup.</p>
+        </li>
+        <li>
+          <span class="no" aria-hidden="true">03</span>
+          <h3>Shingle work</h3>
+          <p>Matching and replacing individual shingles, ridge caps included.</p>
+        </li>
+        <li>
+          <span class="no" aria-hidden="true">04</span>
+          <h3>Flashing and gutters</h3>
+          <p>Sealing chimneys, valleys and edges, and keeping water moving away.</p>
+        </li>
+        <li>
+          <span class="no" aria-hidden="true">05</span>
+          <h3>Roof inspections</h3>
+          <p>A walk of the whole roof with a written summary of what we see.</p>
+        </li>
+        <li>
+          <span class="no" aria-hidden="true">06</span>
+          <h3>Leak repair</h3>
+          <p>Finding where water gets in, not just where it drips out.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <h2>On the roof</h2>
+      <p class="intro narrow">A few looks at the kind of work this trade is made of.</p>
+      <div class="shots">
+        <figure>
+          <img src="{{ASSETS}}/work-1.jpg" alt="Close-up of ridge cap shingles along a roof peak" loading="lazy" width="1024" height="1024" onerror="this.remove()">
+          <figcaption>Ridge cap close-up, shingle courses lapped tight.</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ASSETS}}/work-2.jpg" alt="Seamless gutter and downspout on the edge of a house" loading="lazy" width="1024" height="1024" onerror="this.remove()">
+          <figcaption>Gutter and downspout set straight along the eave.</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ASSETS}}/work-3.jpg" alt="Roofing tools and shingle bundles laid out on a rooftop" loading="lazy" width="1024" height="1024" onerror="this.remove()">
+          <figcaption>Tools and materials staged and ready before the first lift.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="head-slate" id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <p class="intro narrow">Three steps, no surprises.</p>
+      <ol class="steps">
+        <li>
+          <h3>Tell us what you see</h3>
+          <p>Send your name and number and a line about the roof — a stain on the ceiling, a loose shingle, or just a hunch.</p>
+        </li>
+        <li>
+          <h3>We come look</h3>
+          <p>Someone climbs up, checks the whole roof over, and tells you plainly what is going on up there.</p>
+        </li>
+        <li>
+          <h3>The work gets done</h3>
+          <p>You get a clear plan and a set day. The crew shows up, does the work, and leaves the yard clean.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="booking">
+    <div class="wrap">
+      <div class="booking-box">
+        <h2>Book a visit</h2>
+        <p class="intro narrow">Leave your details and a preferred day. This is a sample form — nothing is stored or sent.</p>
+        <form id="booking-form" novalidate>
+          <div class="field" data-field="name">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+            <span class="err" id="e-name" role="alert"></span>
+          </div>
+          <div class="field" data-field="phone">
+            <label for="f-phone">Phone</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="e-phone">
+            <span class="err" id="e-phone" role="alert"></span>
+          </div>
+          <div class="field" data-field="day">
+            <label for="f-day">Preferred day</label>
+            <select id="f-day" name="day" required aria-describedby="e-day">
+              <option value="">Choose a day</option>
+              <option value="monday">Monday</option>
+              <option value="tuesday">Tuesday</option>
+              <option value="wednesday">Wednesday</option>
+              <option value="thursday">Thursday</option>
+              <option value="friday">Friday</option>
+              <option value="any">Any weekday</option>
+            </select>
+            <span class="err" id="e-day" role="alert"></span>
+          </div>
+          <div class="field" data-field="message">
+            <label for="f-message">Message</label>
+            <textarea id="f-message" name="message" maxlength="600" required aria-describedby="e-message" placeholder="A line or two about the roof"></textarea>
+            <span class="err" id="e-message" role="alert"></span>
+          </div>
+          <button class="btn btn-brick" type="submit">Request booking</button>
+          <p class="form-note" id="form-note" role="status">Preview only. Nothing was sent.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="shingle-band shingle-band-thin" aria-hidden="true"></div>
+
+<div class="contact-strip">
+  <div class="wrap">
+    <span>Talk to a real person about your roof:</span>
+    <a class="phone" href="tel:{{PHONE_TEL}}">{{PHONE_DISPLAY}}</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>Design preview made for {{NAME}}. Sample text and photos. This is not their official website.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById("booking-form");
+  var note = document.getElementById("form-note");
+
+  function setErr(name, msg) {
+    var field = form.querySelector('[data-field="' + name + '"]');
+    var errEl = document.getElementById("e-" + name);
+    if (msg) {
+      field.classList.add("invalid");
+      errEl.textContent = msg;
+    } else {
+      field.classList.remove("invalid");
+      errEl.textContent = "";
+    }
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var ok = true;
+    var name = form.name.value.trim();
+    var phone = form.phone.value.trim();
+    var day = form.day.value;
+    var message = form.message.value.trim();
+
+    if (!name) { setErr("name", "Please enter your name."); ok = false; } else { setErr("name", ""); }
+    if (!phone) { setErr("phone", "Please enter a phone number so we can reach you."); ok = false; }
+    else if (!/^[0-9+()\-.\s]{7,}$/.test(phone)) { setErr("phone", "That phone number does not look right — check the digits."); ok = false; }
+    else { setErr("phone", ""); }
+    if (!day) { setErr("day", "Please pick a preferred day."); ok = false; } else { setErr("day", ""); }
+    if (!message) { setErr("message", "A short message helps us prepare — what is the roof doing?"); ok = false; } else { setErr("message", ""); }
+
+    if (!ok) {
+      note.classList.remove("show");
+      var firstBad = form.querySelector(".field.invalid input, .field.invalid select, .field.invalid textarea");
+      if (firstBad) firstBad.focus();
+      return;
+    }
+
+    note.textContent = "Preview only. Nothing was sent.";
+    note.classList.add("show");
+    form.reset();
+  });
+
+  form.addEventListener("input", function (e) {
+    var wrap = e.target.closest(".field");
+    if (wrap && wrap.classList.contains("invalid")) {
+      wrap.classList.remove("invalid");
+      var err = wrap.querySelector(".err");
+      if (err) err.textContent = "";
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

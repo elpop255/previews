@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:,">
+  <title>{{NAME}} — {{TRADE}}</title>
+  <meta name="description" content="Design preview for {{NAME}}, a {{TRADE}} business. Sample text and photos.">
+  <style>
+    /* ---------- Design tokens ---------- */
+    :root {
+      --charcoal: #1b1a18;
+      --charcoal-raise: #242220;
+      --charcoal-line: #37342f;
+      --brass: #c9a15a;
+      --brass-deep: #a37e3d;
+      --paper: #ede8df;
+      --paper-dim: #b5ada0;
+      --danger: #e2907b;
+      --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+      --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; }
+
+    html { scroll-padding-top: 4.5rem; }
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
+
+    body {
+      background: var(--charcoal);
+      color: var(--paper);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--brass);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+
+    h1, h2, h3 {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+    }
+
+    .wrap {
+      max-width: 68rem;
+      margin-inline: auto;
+      padding-inline: 1.25rem;
+    }
+
+    .measure { max-width: 58ch; }
+
+    /* ---------- Buttons & links ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      min-width: 44px;
+      padding: 0.65rem 1.35rem;
+      border: 1px solid var(--brass);
+      border-radius: 2px;
+      font: 600 1rem var(--font-body);
+      text-decoration: none;
+      cursor: pointer;
+      background: transparent;
+      color: var(--brass);
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+    .btn-solid { background: var(--brass); color: var(--charcoal); }
+    .btn-solid:hover { background: var(--brass-deep); border-color: var(--brass-deep); color: var(--charcoal); }
+    .btn-ghost:hover { background: var(--brass); color: var(--charcoal); }
+
+    a.inline-link { color: var(--brass); text-underline-offset: 3px; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--charcoal);
+      border-bottom: 1px solid var(--charcoal-line);
+    }
+    .site-header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 4rem;
+    }
+    .wordmark {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--paper);
+      text-decoration: none;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero { padding-block: 3rem 3.5rem; }
+    .hero-grid {
+      display: grid;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    @media (min-width: 52rem) {
+      .hero-grid { grid-template-columns: 1.2fr 0.8fr; gap: 3.5rem; }
+      .hero { padding-block: 4.5rem 5rem; }
+    }
+    .hero h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); }
+    .hero .kicker-line {
+      margin-top: 1rem;
+      font-size: 1.15rem;
+      color: var(--paper-dim);
+    }
+    .hero .kicker-line strong { color: var(--brass); font-weight: 600; }
+    .hero .actions { margin-top: 1.75rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .hero-figure {
+      position: relative;
+      background: var(--charcoal-raise);
+      border: 1px solid var(--charcoal-line);
+      border-radius: 3px;
+      padding: 0.5rem;
+    }
+    .hero-figure img { border-radius: 2px; width: 100%; }
+
+    /* The keyhole emblem — the one loud thing on the page */
+    .keyhole {
+      width: 6.5rem;
+      height: 9.5rem;
+      margin-bottom: 2rem;
+    }
+    .keyhole .disc {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--brass);
+      position: relative;
+      overflow: hidden;
+    }
+    .keyhole .disc::before {
+      content: "";
+      position: absolute;
+      top: 22%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 34%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--charcoal);
+    }
+    .keyhole .disc::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 26%;
+      height: 46%;
+      background: var(--charcoal);
+      clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%);
+    }
+
+    /* ---------- Sections ---------- */
+    section { padding-block: 3.5rem; }
+    @media (min-width: 52rem) { section { padding-block: 4.5rem; } }
+    .section + .section { border-top: 1px solid var(--charcoal-line); }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .section-head h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); }
+    .section-head .index {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--brass);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ---------- Services: ruled list, not cards ---------- */
+    .services { list-style: none; padding: 0; }
+    .services li {
+      display: grid;
+      grid-template-columns: 3.5rem 1fr;
+      gap: 0.35rem 1rem;
+      padding-block: 1.1rem;
+      border-bottom: 1px solid var(--charcoal-line);
+    }
+    .services li:first-child { border-top: 1px solid var(--charcoal-line); }
+    .services .num {
+      font-family: var(--font-serif);
+      color: var(--brass);
+      font-variant-numeric: tabular-nums;
+    }
+    .services h3 { font-size: 1.2rem; }
+    .services p { grid-column: 2; color: var(--paper-dim); }
+    @media (min-width: 40rem) {
+      .services li { grid-template-columns: 3.5rem 16rem 1fr; align-items: baseline; }
+      .services p { grid-column: 3; }
+    }
+
+    /* ---------- Gallery ---------- */
+    .gallery {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 40rem) {
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .gallery figure:last-child { grid-column: 1 / -1; max-width: 60%; }
+    }
+    .gallery figure {
+      background: var(--charcoal-raise);
+      border: 1px solid var(--charcoal-line);
+      border-radius: 3px;
+      padding: 0.5rem;
+    }
+    .gallery img { width: 100%; border-radius: 2px; }
+    .gallery figcaption {
+      padding: 0.6rem 0.4rem 0.2rem;
+      font-size: 0.9rem;
+      color: var(--paper-dim);
+    }
+
+    /* ---------- How it works ---------- */
+    .steps { list-style: none; padding: 0; counter-reset: step; max-width: 62ch; }
+    .steps li {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 0.5rem 1rem;
+      padding-block: 1rem;
+      color: var(--paper-dim);
+    }
+    .steps li::before {
+      content: counter(step);
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--brass);
+      line-height: 1;
+    }
+    .steps li strong { color: var(--paper); font-weight: 600; }
+
+    /* ---------- Booking form ---------- */
+    .booking-grid { display: grid; gap: 2rem; }
+    @media (min-width: 52rem) { .booking-grid { grid-template-columns: 1fr 1.4fr; } }
+    .field { margin-bottom: 1.4rem; }
+    .field label { display: block; margin-bottom: 0.4rem; font-weight: 600; }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      min-height: 44px;
+      padding: 0.65rem 0.8rem;
+      background: var(--charcoal-raise);
+      border: 1px solid var(--charcoal-line);
+      border-radius: 2px;
+      color: var(--paper);
+      font: 1rem var(--font-body);
+    }
+    .field textarea { min-height: 6.5rem; resize: vertical; }
+    .field [aria-invalid="true"] { border-color: var(--danger); }
+    .field-error {
+      margin-top: 0.35rem;
+      font-size: 0.9rem;
+      color: var(--danger);
+    }
+    .form-status {
+      margin-top: 1rem;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--brass);
+      border-radius: 2px;
+      color: var(--brass);
+      background: var(--charcoal-raise);
+    }
+    [hidden] { display: none !important; }
+
+    /* ---------- Contact strip ---------- */
+    .contact-strip {
+      border-top: 1px solid var(--charcoal-line);
+      padding-block: 2.25rem;
+      text-align: center;
+    }
+    .contact-strip .phone {
+      display: inline-block;
+      min-height: 44px;
+      font-family: var(--font-serif);
+      font-size: clamp(1.7rem, 4.5vw, 2.6rem);
+      color: var(--brass);
+      text-decoration: none;
+    }
+    .contact-strip .phone:hover { text-decoration: underline; text-underline-offset: 6px; }
+    .contact-strip p { margin-top: 0.35rem; color: var(--paper-dim); }
+
+    /* ---------- Footer ---------- */
+    .site-footer {
+      border-top: 1px solid var(--charcoal-line);
+      padding-block: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--paper-dim);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="#top">{{NAME}}</a>
+      <a class="btn btn-ghost" href="tel:{{PHONE_TEL}}">Call now</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="keyhole" aria-hidden="true">
+            <div class="disc"></div>
+          </div>
+          <h1>Doors that open for the right people, and no one else.</h1>
+          <p class="kicker-line measure">A steady hand with every <strong>{{TRADE}}</strong> job &mdash; from a stuck cylinder to a full lock swap.</p>
+          <div class="actions">
+            <a class="btn btn-solid" href="#booking">Book a visit</a>
+          </div>
+        </div>
+        <figure class="hero-figure">
+          <img src="{{ASSETS}}/hero.jpg" alt="Brass deadbolt fitted to a charcoal-painted front door" width="1600" height="1000">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="services-title">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="index" aria-hidden="true">01</span>
+          <h2 id="services-title">What we do</h2>
+        </div>
+        <ul class="services">
+          <li>
+            <span class="num" aria-hidden="true">1.</span>
+            <h3>Lockout help</h3>
+            <p>Locked out? We open your door without drilling whenever it can be avoided.</p>
+          </li>
+          <li>
+            <span class="num" aria-hidden="true">2.</span>
+            <h3>Rekeying</h3>
+            <p>Keep your existing locks and make every old key stop working.</p>
+          </li>
+          <li>
+            <span class="num" aria-hidden="true">3.</span>
+            <h3>Lock replacement</h3>
+            <p>Worn, loose or outdated locks swapped for new, properly fitted hardware.</p>
+          </li>
+          <li>
+            <span class="num" aria-hidden="true">4.</span>
+            <h3>Car key replacement</h3>
+            <p>Replacement keys and remotes cut and programmed for your vehicle.</p>
+          </li>
+          <li>
+            <span class="num" aria-hidden="true">5.</span>
+            <h3>Smart lock installation</h3>
+            <p>Keypad and app-controlled locks fitted and set up on your door.</p>
+          </li>
+          <li>
+            <span class="num" aria-hidden="true">6.</span>
+            <h3>Deadbolt installation</h3>
+            <p>A solid deadbolt, correctly aligned, added to your exterior doors.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="gallery-title">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="index" aria-hidden="true">02</span>
+          <h2 id="gallery-title">On the bench</h2>
+        </div>
+        <div class="gallery">
+          <figure>
+            <img src="{{ASSETS}}/work-1.jpg" alt="A set of brass keys on a dark slate table" loading="lazy" width="1200" height="900">
+            <figcaption>Keys cut and ready for handover.</figcaption>
+          </figure>
+          <figure>
+            <img src="{{ASSETS}}/work-2.jpg" alt="A smart lock with keypad mounted on a dark door" loading="lazy" width="1200" height="900">
+            <figcaption>A keypad lock fitted to a hallway door.</figcaption>
+          </figure>
+          <figure>
+            <img src="{{ASSETS}}/work-3.jpg" alt="A brass padlock and hand tools on a workbench" loading="lazy" width="1200" height="900">
+            <figcaption>Brass hardware and a well-kept toolkit.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="index" aria-hidden="true">03</span>
+          <h2 id="how-title">How it works</h2>
+        </div>
+        <ol class="steps">
+          <li><span><strong>You get in touch.</strong> Call, or send the booking form further down this page.</span></li>
+          <li><span><strong>We agree on a time.</strong> A short conversation about the job and a visit that suits you.</span></li>
+          <li><span><strong>The work gets done.</strong> The lock or key is sorted, and everything is tested before we leave.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="booking" aria-labelledby="booking-title">
+      <div class="wrap booking-grid">
+        <div>
+          <div class="section-head">
+            <span class="index" aria-hidden="true">04</span>
+            <h2 id="booking-title">Book a visit</h2>
+          </div>
+          <p class="measure" style="color: var(--paper-dim);">Tell us what the door or the key needs, and a day that suits you. We reply to arrange the rest.</p>
+        </div>
+
+        <form id="booking-form" novalidate>
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+            <p class="field-error" id="e-name" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="f-phone">Phone</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="e-phone">
+            <p class="field-error" id="e-phone" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="f-day">Preferred day</label>
+            <select id="f-day" name="day" required aria-describedby="e-day">
+              <option value="">Choose a day&hellip;</option>
+              <option>Monday</option>
+              <option>Tuesday</option>
+              <option>Wednesday</option>
+              <option>Thursday</option>
+              <option>Friday</option>
+              <option>Saturday</option>
+            </select>
+            <p class="field-error" id="e-day" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="f-message">Short message <span style="font-weight: 400; color: var(--paper-dim);">(optional)</span></label>
+            <textarea id="f-message" name="message" maxlength="500" aria-describedby="e-message"></textarea>
+            <p class="field-error" id="e-message" hidden></p>
+          </div>
+
+          <button class="btn btn-solid" type="submit">Request booking</button>
+          <p class="form-status" id="form-status" role="status" hidden></p>
+        </form>
+      </div>
+    </section>
+
+    <div class="contact-strip">
+      <div class="wrap">
+        <a class="phone" href="tel:{{PHONE_TEL}}">{{PHONE_DISPLAY}}</a>
+        <p>One number, straight to the workshop.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Design preview made for {{NAME}}. Sample text and photos. This is not their official website.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById("booking-form");
+      var status = document.getElementById("form-status");
+
+      function setError(id, message) {
+        var input = document.getElementById("f-" + id);
+        var error = document.getElementById("e-" + id);
+        if (message) {
+          error.textContent = message;
+          error.hidden = false;
+          input.setAttribute("aria-invalid", "true");
+        } else {
+          error.hidden = true;
+          input.removeAttribute("aria-invalid");
+        }
+      }
+
+      var checks = [
+        { id: "name", valid: function (v) { return v.trim().length > 0; },
+          msg: "Please enter your name." },
+        { id: "phone", valid: function (v) { return /^[+()\-.\s\d]{7,20}$/.test(v.trim()); },
+          msg: "Please enter a phone number, for example (713) 555-0123." },
+        { id: "day", valid: function (v) { return v !== ""; },
+          msg: "Please pick a preferred day." },
+        { id: "message", valid: function (v) { return v.length <= 500; },
+          msg: "Please keep the message under 500 characters." }
+      ];
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var firstInvalid = null;
+        checks.forEach(function (check) {
+          var input = document.getElementById("f-" + check.id);
+          var ok = check.valid(input.value);
+          setError(check.id, ok ? "" : check.msg);
+          if (!ok && !firstInvalid) firstInvalid = input;
+        });
+
+        if (firstInvalid) {
+          status.hidden = true;
+          firstInvalid.focus();
+          return;
+        }
+
+        /* Preview only: no network request, nothing stored. */
+        status.textContent = "Preview only. Nothing was sent.";
+        status.hidden = false;
+      });
+    })();
+  </script>
+</body>
+</html>
