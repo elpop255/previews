@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Unique Electrical Services — electrical installation service services</title>
+<meta name="description" content="Preview page for Unique Electrical Services. Sample text and photos.">
+<style>
+:root {
+  --navy-900: #0b1524;
+  --navy-800: #101d30;
+  --navy-700: #16253c;
+  --navy-line: #24374f;
+  --ink: #eef2f7;
+  --ink-soft: #b7c3d2;
+  --copper: #d08a4e;
+  --copper-bright: #e8a86b;
+  --copper-deep: #9a5f2f;
+  --paper: #f4f1ea;
+  --paper-ink: #1a2434;
+  --danger: #f2a09a;
+  --ok: #9fd0a8;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--navy-900);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 .5em;
+  font-weight: 650;
+}
+
+p { max-width: 72ch; }
+
+a { color: var(--copper-bright); }
+
+:focus-visible {
+  outline: 3px solid var(--copper-bright);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.wrap {
+  width: min(100% - 2.5rem, 62rem);
+  margin-inline: auto;
+}
+
+/* ---------- header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--navy-900) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--navy-line);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4rem;
+  padding-block: .5rem;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+.brand .spark {
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: .6rem 1.2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--copper);
+  background: var(--copper);
+  color: #241206;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease;
+}
+
+.btn:hover { background: var(--copper-bright); border-color: var(--copper-bright); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--copper-bright);
+}
+
+.btn-ghost:hover { background: color-mix(in srgb, var(--copper) 16%, transparent); }
+
+/* ---------- hero ---------- */
+.hero { padding-block: 3rem 3.5rem; }
+
+.hero-grid { display: grid; gap: 2rem; }
+
+.hero-kicker {
+  color: var(--copper-bright);
+  font-weight: 600;
+  margin: 0 0 .75rem;
+}
+
+.hero h1 { font-size: clamp(2rem, 6vw, 3rem); }
+
+.hero .lede {
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+
+/* memorable element: a live copper circuit trace */
+.circuit { margin-top: 2.5rem; }
+
+.circuit svg { display: block; width: 100%; height: 64px; }
+
+.circuit .trace {
+  fill: none;
+  stroke: var(--copper);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.circuit .pulse {
+  fill: none;
+  stroke: var(--copper-bright);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 28 460;
+  animation: travel 5.5s linear infinite;
+}
+
+@keyframes travel {
+  from { stroke-dashoffset: 488; }
+  to { stroke-dashoffset: 0; }
+}
+
+.photo-frame {
+  border: 1px solid var(--navy-line);
+  border-radius: var(--radius);
+  background: var(--navy-700);
+  overflow: hidden;
+}
+
+.photo-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero .photo-frame { min-height: 240px; aspect-ratio: 16 / 10; }
+
+/* ---------- sections ---------- */
+.section { padding-block: 3.5rem; border-top: 1px solid var(--navy-line); }
+
+.section-head { margin-bottom: 2rem; }
+
+.section-head h2 { font-size: clamp(1.5rem, 4vw, 2rem); }
+
+.section-head p { color: var(--ink-soft); margin: 0; }
+
+/* services: ruled list, not cards */
+.services { border-top: 1px solid var(--navy-line); }
+
+.services li {
+  list-style: none;
+  display: grid;
+  gap: .2rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--navy-line);
+}
+
+.services h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  display: flex;
+  gap: .8rem;
+  align-items: baseline;
+}
+
+.services .num {
+  color: var(--copper);
+  font-variant-numeric: tabular-nums;
+  font-size: .95rem;
+}
+
+.services p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+@media (min-width: 44rem) {
+  .services li { grid-template-columns: minmax(0, 18rem) 1fr; column-gap: 2rem; }
+}
+
+/* gallery */
+.gallery {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 44rem) {
+  .gallery { grid-template-columns: 2fr 1fr; }
+  .gallery .photo-frame:first-child { grid-row: span 2; }
+}
+
+.gallery .photo-frame { min-height: 200px; aspect-ratio: 4 / 3; }
+.gallery .photo-frame:first-child { aspect-ratio: auto; }
+
+.gallery figcaption {
+  padding: .7rem 1rem;
+  font-size: .9rem;
+  color: var(--ink-soft);
+}
+
+/* how it works */
+.steps { counter-reset: step; border-top: 1px solid var(--navy-line); }
+
+.steps li {
+  list-style: none;
+  padding: 1.2rem 0 1.4rem;
+  border-bottom: 1px solid var(--navy-line);
+}
+
+.steps h3 { margin: 0 0 .3rem; font-size: 1.05rem; }
+
+.steps p { margin: 0; color: var(--ink-soft); }
+
+.steps .num {
+  color: var(--copper);
+  font-weight: 700;
+  margin-right: .6rem;
+}
+
+/* booking */
+.booking {
+  background: var(--paper);
+  color: var(--paper-ink);
+  border-top: 3px solid var(--copper);
+}
+
+.booking .section-head p { color: color-mix(in srgb, var(--paper-ink) 72%, var(--paper)); }
+
+.booking form { max-width: 34rem; }
+
+.field { margin-bottom: 1.2rem; }
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: .35rem;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: .65rem .8rem;
+  font: inherit;
+  color: var(--paper-ink);
+  background: #fff;
+  border: 1px solid #b9b3a5;
+  border-radius: var(--radius);
+}
+
+.field textarea { min-height: 7rem; resize: vertical; }
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: 3px solid var(--copper-deep);
+  outline-offset: 1px;
+}
+
+.field .error {
+  display: none;
+  margin-top: .35rem;
+  color: #8c2f21;
+  font-size: .92rem;
+  font-weight: 600;
+}
+
+.field.invalid .error { display: block; }
+
+.field.invalid input,
+.field.invalid select,
+.field.invalid textarea { border-color: #8c2f21; border-width: 2px; }
+
+.booking .btn { border-color: var(--copper-deep); background: var(--copper-deep); color: #fff; }
+
+.booking .btn:hover { background: var(--copper); border-color: var(--copper); color: #241206; }
+
+.form-note {
+  display: none;
+  margin-top: 1rem;
+  padding: .8rem 1rem;
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--ok) 22%, var(--paper));
+  border: 1px solid var(--ok);
+  color: #26442b;
+  font-weight: 600;
+}
+
+.form-note.show { display: block; }
+
+/* contact strip */
+.contact-strip {
+  padding-block: 2rem;
+  border-top: 1px solid var(--navy-line);
+  background: var(--navy-800);
+}
+
+.contact-strip .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.contact-strip .phone {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--copper-bright);
+  text-decoration: none;
+}
+
+/* footer */
+.site-footer {
+  padding-block: 2rem;
+  border-top: 1px solid var(--navy-line);
+  color: var(--ink-soft);
+  font-size: .92rem;
+}
+
+.site-footer p { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .circuit .pulse { animation: none; }
+  .btn, .field input, .field select, .field textarea { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg class="spark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2Z" fill="#d08a4e"/>
+      </svg>
+      Unique Electrical Services
+    </a>
+    <a class="btn btn-ghost" href="tel:+18326651584">Call now</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="hero-kicker">electrical installation service services</p>
+        <h1>Electrical work done right, the first time.</h1>
+        <p class="lede">Your local electrical installation service for panel upgrades, rewiring, lighting, and EV chargers — careful, tidy, and exact on every job.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#booking">Book a visit</a>
+        </div>
+        <div class="circuit" aria-hidden="true">
+          <svg viewBox="0 0 640 64" preserveAspectRatio="none" focusable="false">
+            <path class="trace" d="M4 46 H150 L178 18 H300 L328 46 H470 L498 18 H636"/>
+            <path class="pulse" d="M4 46 H150 L178 18 H300 L328 46 H470 L498 18 H636"/>
+          </svg>
+        </div>
+      </div>
+      <figure class="photo-frame" style="margin:0">
+        <img src="https://elpop255.github.io/previews/templates/electrical/img/hero.jpg" alt="A tidy electrical panel with neatly routed copper wiring" width="1400" height="882">
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Services</h2>
+        <p>Sample service descriptions — the business can replace these with their own.</p>
+      </div>
+      <ul class="services">
+        <li>
+          <h3><span class="num">01</span>Panel upgrades</h3>
+          <p>Sample text: replacing an old panel so the home can carry modern loads safely.</p>
+        </li>
+        <li>
+          <h3><span class="num">02</span>Wiring and rewiring</h3>
+          <p>Sample text: new circuits and careful rewiring of rooms, additions, and older homes.</p>
+        </li>
+        <li>
+          <h3><span class="num">03</span>Lighting installation</h3>
+          <p>Sample text: ceiling fixtures, pendants, and recessed lighting placed and wired neatly.</p>
+        </li>
+        <li>
+          <h3><span class="num">04</span>Outlets and switches</h3>
+          <p>Sample text: adding, replacing, and troubleshooting outlets and switches around the home.</p>
+        </li>
+        <li>
+          <h3><span class="num">05</span>EV charger installation</h3>
+          <p>Sample text: home charger units installed on their own dedicated circuit.</p>
+        </li>
+        <li>
+          <h3><span class="num">06</span>Troubleshooting</h3>
+          <p>Sample text: finding the real cause of flickering lights, dead outlets, and tripped breakers.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>On the job</h2>
+        <p>Sample photos shown as placeholders for the business's own work photos.</p>
+      </div>
+      <div class="gallery">
+        <figure class="photo-frame" style="margin:0">
+          <img src="https://elpop255.github.io/previews/templates/electrical/img/work-1.jpg" alt="Copper pendant lights installed in a room" loading="lazy" width="1100" height="836">
+          <figcaption>Lighting installed in a finished room</figcaption>
+        </figure>
+        <figure class="photo-frame" style="margin:0">
+          <img src="https://elpop255.github.io/previews/templates/electrical/img/work-2.jpg" alt="Wiring tools laid out on a workbench" loading="lazy" width="1100" height="836">
+          <figcaption>The tools of the trade</figcaption>
+        </figure>
+        <figure class="photo-frame" style="margin:0">
+          <img src="https://elpop255.github.io/previews/templates/electrical/img/work-3.jpg" alt="A wall outlet and switch freshly installed" loading="lazy" width="1100" height="836">
+          <figcaption>A clean outlet and switch fit</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How it works</h2>
+        <p>Plain sample text describing a simple three-step process.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3><span class="num">1</span>Request a visit</h3>
+          <p>Sample text: send a short note about the job using the form below, or call to talk it through.</p>
+        </li>
+        <li>
+          <h3><span class="num">2</span>Walk-through and quote</h3>
+          <p>Sample text: the work is looked at in person and an estimate is written up before anything starts.</p>
+        </li>
+        <li>
+          <h3><span class="num">3</span>The work gets done</h3>
+          <p>Sample text: the job is scheduled, completed tidily, and everything is tested before wrapping up.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="booking section" id="booking">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Book a visit</h2>
+        <p>Sample form — nothing here is connected yet, so no message is sent.</p>
+      </div>
+      <form id="booking-form" novalidate>
+        <div class="field" id="field-name">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+          <p class="error" id="name-error">Please enter your name.</p>
+        </div>
+        <div class="field" id="field-phone">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+          <p class="error" id="phone-error">Please enter a phone number (at least 7 digits).</p>
+        </div>
+        <div class="field" id="field-day">
+          <label for="day">Preferred day</label>
+          <select id="day" name="day" required>
+            <option value="">Choose a day</option>
+            <option value="monday">Monday</option>
+            <option value="tuesday">Tuesday</option>
+            <option value="wednesday">Wednesday</option>
+            <option value="thursday">Thursday</option>
+            <option value="friday">Friday</option>
+            <option value="weekend">Weekend</option>
+          </select>
+          <p class="error" id="day-error">Please choose a preferred day.</p>
+        </div>
+        <div class="field" id="field-message">
+          <label for="message">Short message</label>
+          <textarea id="message" name="message" required placeholder="Sample: two rooms need new outlets"></textarea>
+          <p class="error" id="message-error">Please write a short note about the job.</p>
+        </div>
+        <button class="btn" type="submit">Request booking</button>
+        <p class="form-note" id="form-note" role="status">Preview only. Nothing was sent.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="contact-strip" id="contact">
+    <div class="wrap">
+      <h2 style="margin:0;font-size:1.2rem">Prefer to call?</h2>
+      <a class="phone" href="tel:+18326651584">(832) 665-1584</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Design preview made for Unique Electrical Services. Sample text and photos. This is not their official website.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById("booking-form");
+  var note = document.getElementById("form-note");
+
+  function digits(s) { return (s.match(/\d/g) || []).length; }
+
+  function setError(fieldId, show) {
+    document.getElementById(fieldId).classList.toggle("invalid", show);
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    note.classList.remove("show");
+
+    var name = document.getElementById("name");
+    var phone = document.getElementById("phone");
+    var day = document.getElementById("day");
+    var message = document.getElementById("message");
+
+    var ok = true;
+    var firstBad = null;
+
+    function check(fieldEl, fieldId, valid) {
+      var good = valid && fieldEl.value.trim() !== "";
+      setError(fieldId, !good);
+      if (!good) {
+        ok = false;
+        if (!firstBad) { firstBad = fieldEl; }
+      }
+      return good;
+    }
+
+    check(name, "field-name", name.value.trim().length > 0);
+    check(phone, "field-phone", digits(phone.value) >= 7);
+    check(day, "field-day", day.value !== "");
+    check(message, "field-message", message.value.trim().length > 0);
+
+    if (!ok) {
+      note.classList.remove("show");
+      firstBad.focus();
+      return;
+    }
+
+    // Preview only: no network request, nothing stored.
+    note.textContent = "Preview only. Nothing was sent.";
+    note.classList.add("show");
+    form.reset();
+    ["field-name", "field-phone", "field-day", "field-message"].forEach(function (id) {
+      setError(id, false);
+    });
+  });
+
+  ["name", "phone", "day", "message"].forEach(function (id) {
+    var map = { name: "field-name", phone: "field-phone", day: "field-day", message: "field-message" };
+    document.getElementById(id).addEventListener("input", function () {
+      setError(map[id], false);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

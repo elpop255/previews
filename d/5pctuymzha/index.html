@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Strong Tower A/C and Heating | air conditioning repair service</title>
+  <style>
+    :root {
+      --teal-950: #071c22;
+      --teal-900: #0b2b33;
+      --teal-800: #123e49;
+      --teal-700: #185260;
+      --teal-600: #21697a;
+      --ice-50: #f2f7f9;
+      --ice-100: #e3eff3;
+      --ice-200: #c6e0e8;
+      --ice-300: #9ec9d6;
+      --citrus-500: #d65900;
+      --citrus-600: #b54900;
+      --text-main: #102227;
+      --text-muted: #385057;
+      --text-light: #f5f9fb;
+      --text-light-muted: #b0cad2;
+      --border-light: #cde0e7;
+      --border-teal: #1a4f5c;
+      --surface-white: #ffffff;
+      --error-red: #a4231b;
+      --error-bg: #fdf2f2;
+      --font-stack: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: var(--font-stack);
+      line-height: 1.5;
+      color: var(--text-main);
+      background-color: var(--ice-50);
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--ice-50);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+      color: inherit;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--citrus-500);
+      outline-offset: 2px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    .max-copy {
+      max-width: 64ch;
+    }
+
+    /* 1. Sticky Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(11, 43, 51, 0.96);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-teal);
+      color: var(--text-light);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 1rem;
+    }
+
+    .brand-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .btn-call {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      min-width: 44px;
+      padding: 0.55rem 1.15rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 6px;
+      background-color: var(--citrus-500);
+      color: #ffffff;
+      border: 1px solid var(--citrus-600);
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-call:hover {
+      background-color: var(--citrus-600);
+    }
+
+    /* 2. Hero Section */
+    .hero-section {
+      background-color: var(--teal-900);
+      color: var(--text-light);
+      padding-top: 3rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--border-teal);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (min-width: 840px) {
+      .hero-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 3rem;
+      }
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .climate-status-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.4rem 0.85rem;
+      background-color: rgba(198, 224, 232, 0.12);
+      border: 1px solid rgba(198, 224, 232, 0.25);
+      border-radius: 9999px;
+      width: fit-content;
+      color: var(--ice-200);
+      font-size: 0.85rem;
+    }
+
+    .climate-indicator-pip {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--ice-200);
+      box-shadow: 0 0 8px rgba(198, 224, 232, 0.8);
+    }
+
+    .hero-headline {
+      font-size: clamp(2rem, 4.5vw, 2.9rem);
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+    }
+
+    .hero-subline {
+      font-size: 1.15rem;
+      line-height: 1.5;
+      color: var(--ice-100);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .btn-book {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.7rem 1.4rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 6px;
+      background-color: var(--ice-100);
+      color: var(--teal-950);
+      border: 1px solid var(--ice-200);
+      cursor: pointer;
+    }
+
+    .btn-book:hover {
+      background-color: #ffffff;
+    }
+
+    .hero-image-wrap {
+      background-color: var(--teal-800);
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 3 / 2;
+      border: 1px solid var(--border-teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Section layout */
+    .section-wrap {
+      padding-top: 4.5rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .section-head {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.65rem, 3vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--teal-900);
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+
+    /* 3. Services */
+    .services-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 720px) {
+      .services-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+    }
+
+    .service-row {
+      background-color: var(--surface-white);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--teal-700);
+      border-radius: 6px;
+      padding: 1.35rem 1.4rem;
+    }
+
+    .service-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--teal-900);
+      margin-bottom: 0.35rem;
+    }
+
+    .service-detail {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* 4. Work Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 680px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .gallery-item {
+      background-color: var(--ice-200);
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 5. How It Works */
+    .steps-section {
+      background-color: var(--ice-100);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 760px) {
+      .steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    .step-card {
+      background-color: var(--surface-white);
+      padding: 1.75rem 1.5rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-light);
+    }
+
+    .step-number {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--teal-700);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-heading {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--teal-900);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-body {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* 6. Booking Section */
+    .booking-section {
+      background-color: var(--surface-white);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .booking-container {
+      max-width: 620px;
+    }
+
+    .booking-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .form-label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--teal-900);
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      min-height: 44px;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      background-color: var(--ice-50);
+      color: var(--text-main);
+    }
+
+    .form-textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      background-color: #ffffff;
+      border-color: var(--teal-700);
+    }
+
+    .field-error {
+      color: var(--error-red);
+      font-size: 0.85rem;
+      display: none;
+      margin-top: 0.2rem;
+    }
+
+    .form-group.has-error .form-input,
+    .form-group.has-error .form-select {
+      border-color: var(--error-red);
+      background-color: var(--error-bg);
+    }
+
+    .form-group.has-error .field-error {
+      display: block;
+    }
+
+    .btn-submit {
+      min-height: 48px;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--teal-900);
+      color: #ffffff;
+      border: 1px solid var(--teal-950);
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--teal-800);
+    }
+
+    .form-message-banner {
+      display: none;
+      padding: 1rem 1.15rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      margin-top: 1rem;
+    }
+
+    .form-message-banner.is-visible {
+      display: block;
+      background-color: var(--ice-100);
+      border: 1px solid var(--ice-300);
+      color: var(--teal-900);
+      font-weight: 600;
+    }
+
+    /* 7. Contact Strip */
+    .contact-strip {
+      background-color: var(--teal-900);
+      color: var(--text-light);
+      padding: 2.25rem 0;
+      border-top: 1px solid var(--border-teal);
+      border-bottom: 1px solid var(--border-teal);
+    }
+
+    .contact-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 600px) {
+      .contact-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+
+    .contact-label {
+      font-size: 1rem;
+      color: var(--ice-200);
+    }
+
+    .contact-phone-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .contact-phone-link:hover {
+      color: var(--ice-200);
+    }
+
+    /* 8. Footer */
+    .site-footer {
+      background-color: var(--teal-950);
+      color: var(--text-light-muted);
+      padding: 2.25rem 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .footer-text {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Sticky Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-name">Strong Tower A/C and Heating</div>
+      <a href="tel:+12818020872" class="btn-call">Call now</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2. Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="climate-status-bar" aria-hidden="true">
+            <span class="climate-indicator-pip"></span>
+            <span>Balanced cooling and steady indoor comfort</span>
+          </div>
+          <h1 class="hero-headline">Calm, dependable climate when the heat peaks.</h1>
+          <p class="hero-subline max-copy">Professional air conditioning repair service focused on quiet equipment performance, proper airflow balance, and lasting household comfort.</p>
+          <div class="hero-actions">
+            <a href="#booking" class="btn-book">Book a visit</a>
+          </div>
+        </div>
+        <div class="hero-image-wrap">
+          <img src="https://elpop255.github.io/previews/templates/ac/img/hero.jpg" alt="Outdoor air conditioning condenser unit beside a residential home" width="1152" height="768" onerror="this.remove()">
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Services Section -->
+    <section class="section-wrap" id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Core Services</h2>
+          <p class="section-desc max-copy">Practical cooling solutions tailored to home layouts and seasonal climate demands.</p>
+        </div>
+        <div class="services-list">
+          <div class="service-row">
+            <h3 class="service-name">AC repair</h3>
+            <p class="service-detail">Diagnostic troubleshooting and component repair to restore cold air flow promptly.</p>
+          </div>
+          <div class="service-row">
+            <h3 class="service-name">AC installation</h3>
+            <p class="service-detail">System sizing and equipment placement configured for balanced whole-house cooling.</p>
+          </div>
+          <div class="service-row">
+            <h3 class="service-name">Tune-ups</h3>
+            <p class="service-detail">System inspections, electrical checks, and coil cleaning to support steady efficiency.</p>
+          </div>
+          <div class="service-row">
+            <h3 class="service-name">Ductless mini-split systems</h3>
+            <p class="service-detail">Targeted room-by-room heating and cooling installations without overhead duct runs.</p>
+          </div>
+          <div class="service-row">
+            <h3 class="service-name">Thermostat setup</h3>
+            <p class="service-detail">Control wiring, calibration, and schedule programming for consistent temperature levels.</p>
+          </div>
+          <div class="service-row">
+            <h3 class="service-name">Refrigerant and filter service</h3>
+            <p class="service-detail">Pressure checks, leak assessment, and clean filter replacement for airflow health.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Work Gallery -->
+    <section class="section-wrap" style="padding-top: 0;">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Field Work</h2>
+          <p class="section-desc max-copy">A look at system installations, diagnostic tools, and room comfort equipment.</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://elpop255.github.io/previews/templates/ac/img/work-1.jpg" alt="HVAC manifold pressure gauges and service tools" width="1024" height="768" onerror="this.remove()">
+          </div>
+          <div class="gallery-item">
+            <img src="https://elpop255.github.io/previews/templates/ac/img/work-2.jpg" alt="Wall-mounted ductless mini-split unit in a living room" width="1024" height="768" onerror="this.remove()">
+          </div>
+          <div class="gallery-item">
+            <img src="https://elpop255.github.io/previews/templates/ac/img/work-3.jpg" alt="Modern wall thermostat showing temperature reading" width="1024" height="768" onerror="this.remove()">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. How It Works -->
+    <section class="section-wrap steps-section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">How It Works</h2>
+          <p class="section-desc max-copy">A straightforward three-step process from initial contact to completed service.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">Step 01</div>
+            <h3 class="step-heading">Request a visit</h3>
+            <p class="step-body">Select your preferred day and outline what your cooling equipment needs through our visit request form.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">Step 02</div>
+            <h3 class="step-heading">System inspection</h3>
+            <p class="step-body">A technician evaluates electrical connections, airflow channels, and mechanical components on site.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">Step 03</div>
+            <h3 class="step-heading">Balanced cooling</h3>
+            <p class="step-body">The planned service or installation is completed, leaving your system calibrated for steady performance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Booking Section -->
+    <section class="section-wrap booking-section" id="booking">
+      <div class="container booking-container">
+        <div class="section-head">
+          <h2 class="section-title">Book a Visit</h2>
+          <p class="section-desc max-copy">Provide your contact details and preferred day to request an equipment visit.</p>
+        </div>
+
+        <form class="booking-form" id="booking-form" novalidate>
+          <div class="form-group" id="group-name">
+            <label class="form-label" for="field-name">Your Name</label>
+            <input class="form-input" type="text" id="field-name" name="name" autocomplete="name" required>
+            <div class="field-error" id="error-name">Please enter your name.</div>
+          </div>
+
+          <div class="form-group" id="group-phone">
+            <label class="form-label" for="field-phone">Phone Number</label>
+            <input class="form-input" type="tel" id="field-phone" name="phone" autocomplete="tel" required>
+            <div class="field-error" id="error-phone">Please enter a valid phone number.</div>
+          </div>
+
+          <div class="form-group" id="group-day">
+            <label class="form-label" for="field-day">Preferred Day</label>
+            <select class="form-select" id="field-day" name="day" required>
+              <option value="">Select a preferred weekday</option>
+              <option value="monday">Monday</option>
+              <option value="tuesday">Tuesday</option>
+              <option value="wednesday">Wednesday</option>
+              <option value="thursday">Thursday</option>
+              <option value="friday">Friday</option>
+              <option value="saturday">Saturday</option>
+            </select>
+            <div class="field-error" id="error-day">Please choose a preferred day.</div>
+          </div>
+
+          <div class="form-group" id="group-message">
+            <label class="form-label" for="field-message">Short Message (Optional)</label>
+            <textarea class="form-textarea" id="field-message" name="message" rows="3" placeholder="Briefly describe what your system needs"></textarea>
+          </div>
+
+          <button class="btn-submit" type="submit">Request booking</button>
+
+          <div class="form-message-banner" id="form-feedback" role="status" aria-live="polite">
+            Preview only. Nothing was sent.
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 7. Contact Strip -->
+    <section class="contact-strip">
+      <div class="container contact-inner">
+        <div class="contact-label">Direct service questions and inquiries:</div>
+        <a href="tel:+12818020872" class="contact-phone-link">(281) 802-0872</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- 8. Footer -->
+  <footer class="site-footer">
+    <div class="container footer-text">
+      <p>Design preview made for Strong Tower A/C and Heating. Sample text and photos. This is not their official website.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var form = document.getElementById('booking-form');
+      if (!form) return;
+
+      var nameInput = document.getElementById('field-name');
+      var phoneInput = document.getElementById('field-phone');
+      var dayInput = document.getElementById('field-day');
+      var banner = document.getElementById('form-feedback');
+
+      var groupName = document.getElementById('group-name');
+      var groupPhone = document.getElementById('group-phone');
+      var groupDay = document.getElementById('group-day');
+
+      function clearErrors() {
+        groupName.classList.remove('has-error');
+        groupPhone.classList.remove('has-error');
+        groupDay.classList.remove('has-error');
+      }
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        clearErrors();
+
+        var isValid = true;
+        var firstInvalid = null;
+
+        if (!nameInput.value || nameInput.value.trim() === '') {
+          groupName.classList.add('has-error');
+          isValid = false;
+          if (!firstInvalid) firstInvalid = nameInput;
+        }
+
+        var phoneVal = phoneInput.value ? phoneInput.value.trim() : '';
+        var phoneDigits = phoneVal.replace(/[^0-9]/g, '');
+        if (!phoneVal || phoneDigits.length < 7) {
+          groupPhone.classList.add('has-error');
+          isValid = false;
+          if (!firstInvalid) firstInvalid = phoneInput;
+        }
+
+        if (!dayInput.value || dayInput.value.trim() === '') {
+          groupDay.classList.add('has-error');
+          isValid = false;
+          if (!firstInvalid) firstInvalid = dayInput;
+        }
+
+        if (!isValid) {
+          if (banner) banner.classList.remove('is-visible');
+          if (firstInvalid) firstInvalid.focus();
+          return;
+        }
+
+        if (banner) {
+          banner.classList.add('is-visible');
+          banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
