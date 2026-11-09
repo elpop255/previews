@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Matthews Tire — auto repair shop</title>
+<style>
+  :root {
+    --slate-950: #101a24;
+    --slate-900: #16222e;
+    --slate-800: #1f2f3d;
+    --slate-700: #2c4152;
+    --slate-600: #3d566b;
+    --slate-400: #8aa2b5;
+    --slate-200: #cdd9e2;
+    --slate-100: #e8eef3;
+    --slate-050: #f5f8fa;
+    --yellow: #ffd400;
+    --yellow-deep: #e5bf00;
+    --white: #ffffff;
+    --ink: #16222e;
+    --error: #a83226;
+    --font: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --measure: 62ch;
+    --stripe: repeating-linear-gradient(
+      -45deg,
+      var(--yellow) 0 14px,
+      var(--slate-900) 14px 28px
+    );
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--font);
+    color: var(--ink);
+    background: var(--slate-050);
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  h1, h2, h3 { line-height: 1.2; margin: 0 0 .5rem; }
+  h1 { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.02em; }
+  h2 { font-size: 1.5rem; font-weight: 750; letter-spacing: -0.01em; }
+  p { margin: 0 0 1rem; max-width: var(--measure); }
+  a { color: var(--slate-700); }
+
+  :focus-visible {
+    outline: 3px solid var(--yellow-deep);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .wrap { max-width: 64rem; margin-inline: auto; padding-inline: 1.25rem; }
+
+  .hazard { height: 10px; background: var(--stripe); }
+
+  /* Header */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--slate-900);
+    color: var(--slate-100);
+  }
+  .site-header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: .65rem;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .brand-mark {
+    width: 1.6rem;
+    height: 1.6rem;
+    flex: none;
+    border-radius: 3px;
+    background: var(--stripe);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: .6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-yellow { background: var(--yellow); color: var(--slate-950); }
+  .btn-yellow:hover { background: var(--yellow-deep); }
+  .btn-outline {
+    background: transparent;
+    color: var(--slate-100);
+    border: 2px solid var(--slate-400);
+  }
+  .btn-outline:hover { border-color: var(--yellow); color: var(--yellow); }
+  .btn-dark { background: var(--slate-900); color: var(--slate-100); }
+  .btn-dark:hover { background: var(--slate-700); }
+
+  /* Hero */
+  .hero { background: var(--slate-900); color: var(--slate-100); padding-block: 2.5rem 2.75rem; }
+  .hero h1 { color: var(--white); max-width: var(--measure); }
+  .hero .tag {
+    color: var(--yellow);
+    font-weight: 700;
+    margin-bottom: .4rem;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.25rem; }
+  .hero-media {
+    margin-top: 1.75rem;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--slate-800); /* solid fallback if the photo fails */
+    border: 1px solid var(--slate-700);
+  }
+  .hero-media img { display: block; width: 100%; height: auto; }
+  .photo {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Services */
+  .services { padding-block: 2.75rem; }
+  .service-list { list-style: none; margin: 1.5rem 0 0; padding: 0; }
+  .service-list li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .35rem 1rem;
+    padding-block: 1rem;
+    border-top: 2px solid var(--slate-200);
+  }
+  .service-list li:last-child { border-bottom: 2px solid var(--slate-200); }
+  .service-num {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--slate-900);
+    background: var(--yellow);
+    align-self: start;
+    min-width: 2rem;
+    text-align: center;
+    border-radius: 3px;
+    line-height: 1.7;
+  }
+  .service-list h3 { margin: 0; font-size: 1.1rem; }
+  .service-list p { margin: 0; color: var(--slate-700); }
+
+  /* Gallery */
+  .gallery { background: var(--slate-100); padding-block: 2.75rem; }
+  .gallery-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .gallery-grid figure {
+    margin: 0;
+    background: var(--slate-400); /* solid fallback if a photo fails */
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--slate-200);
+  }
+  .gallery-grid figcaption {
+    padding: .55rem .85rem;
+    font-size: .9rem;
+    color: var(--slate-700);
+    background: var(--slate-050);
+    border-top: 1px solid var(--slate-200);
+  }
+  @media (min-width: 46rem) {
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "a a" "b c";
+    }
+    .gallery-grid figure:first-child { grid-area: a; }
+    .gallery-grid figure:nth-child(2) { grid-area: b; }
+    .gallery-grid figure:nth-child(3) { grid-area: c; }
+  }
+
+  /* How it works */
+  .steps { padding-block: 2.75rem; }
+  .step-list { list-style: none; counter-reset: step; margin: 1.5rem 0 0; padding: 0; }
+  .step-list li {
+    counter-increment: step;
+    padding: 1rem 0 1rem 0;
+    border-top: 2px solid var(--slate-200);
+    max-width: var(--measure);
+  }
+  .step-list li:last-child { border-bottom: 2px solid var(--slate-200); }
+  .step-list li::before {
+    content: counter(step);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin-right: .6rem;
+    background: var(--slate-900);
+    color: var(--yellow);
+    font-weight: 800;
+    border-radius: 50%;
+  }
+  .step-list h3 { display: inline; font-size: 1.1rem; margin: 0; }
+  .step-list p { margin: .5rem 0 0; color: var(--slate-700); }
+
+  /* Booking */
+  .booking { background: var(--slate-900); color: var(--slate-100); padding-block: 2.75rem; }
+  .booking h2 { color: var(--white); }
+  .booking-form {
+    margin-top: 1.5rem;
+    display: grid;
+    gap: 1.1rem;
+    max-width: 34rem;
+  }
+  .field { display: grid; gap: .3rem; }
+  .field label { font-weight: 700; }
+  .field input, .field select, .field textarea {
+    font: inherit;
+    color: var(--ink);
+    background: var(--white);
+    border: 2px solid var(--slate-400);
+    border-radius: 6px;
+    padding: .6rem .75rem;
+    min-height: 44px;
+    width: 100%;
+  }
+  .field textarea { min-height: 6.5rem; resize: vertical; }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--yellow);
+  }
+  .field .hint { font-size: .9rem; color: var(--slate-400); }
+  .error {
+    display: none;
+    color: #ffb4a8;
+    font-size: .9rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  .error::before { content: "⚠ "; }
+  .field.invalid input, .field.invalid select, .field.invalid textarea {
+    border-color: var(--error);
+  }
+  .field.invalid .error { display: block; }
+  .form-note {
+    display: none;
+    margin-top: 1rem;
+    padding: .8rem 1rem;
+    border-radius: 6px;
+    background: var(--yellow);
+    color: var(--slate-950);
+    font-weight: 700;
+  }
+  .form-note.show { display: block; }
+
+  /* Contact strip */
+  .contact {
+    background: var(--yellow);
+    color: var(--slate-950);
+    padding-block: 1.4rem;
+  }
+  .contact .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: .75rem;
+  }
+  .contact strong { font-size: 1.15rem; }
+  .contact a {
+    color: var(--slate-950);
+    font-weight: 800;
+    font-size: 1.25rem;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  /* Footer */
+  .site-footer {
+    background: var(--slate-950);
+    color: var(--slate-400);
+    padding-block: 1.75rem;
+    font-size: .9rem;
+  }
+  .site-footer p { margin: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hazard" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true"></span>
+      Matthews Tire
+    </a>
+    <a class="btn btn-yellow" href="tel:+19204981458">Call now</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="tag">auto repair shop</p>
+      <h1>Your car, fixed the honest way</h1>
+      <p>Sample text for a local auto repair shop shop. Straight answers, clear
+      explanations, and work you can look over before you drive home.</p>
+      <div class="hero-actions">
+        <a class="btn btn-yellow" href="#booking">Book a visit</a>
+        <a class="btn btn-outline" href="#services">See services</a>
+      </div>
+      <div class="hero-media">
+        <img class="photo" src="https://elpop255.github.io/previews/templates/auto/img/hero.jpg" width="1024" height="1024"
+        alt="A car raised on a hydraulic lift inside the workshop" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <h2>What we work on</h2>
+      <p>Sample text for a local auto repair shop shop. Straight answers, clear
+      explanations, and work you can look over before you drive home.</p>
+      <ul class="service-list">
+        <li>
+          <span class="service-num" aria-hidden="true">1</span>
+          <div>
+            <h3>Brake service</h3>
+            <p>Sample text: pads, rotors, and fluid checked and replaced.</p>
+          </div>
+        </li>
+        <li>
+          <span class="service-num" aria-hidden="true">2</span>
+          <div>
+            <h3>Oil change</h3>
+            <p>Sample text: oil and filter changed on a schedule that fits.</p>
+          </div>
+        </li>
+        <li>
+          <span class="service-num" aria-hidden="true">3</span>
+          <div>
+            <h3>Engine diagnostics</h3>
+            <p>Sample text: warning lights read and tracked to the source.</p>
+          </div>
+        </li>
+        <li>
+          <span class="service-num" aria-hidden="true">4</span>
+          <div>
+            <h3>Tires and wheels</h3>
+            <p>Sample text: mounting, balancing, rotation, and alignment.</p>
+          </div>
+        </li>
+        <li>
+          <span class="service-num" aria-hidden="true">5</span>
+          <div>
+            <h3>AC repair</h3>
+            <p>Sample text: refrigerant leaks found and systems recharged.</p>
+          </div>
+        </li>
+        <li>
+          <span class="service-num" aria-hidden="true">6</span>
+          <div>
+            <h3>Battery and starting</h3>
+            <p>Sample text: batteries tested and starters traced to the fault.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <h2>Inside the shop</h2>
+      <p>Sample photos of the workshop and the tools used every day.</p>
+      <div class="gallery-grid">
+        <figure>
+          <img class="photo" src="https://elpop255.github.io/previews/templates/auto/img/work-1.jpg" width="1024" height="1024"
+          loading="lazy" alt="An open engine bay with a wrench resting on the fender">
+          <figcaption>Sample text: an engine bay mid-inspection.</figcaption>
+        </figure>
+        <figure>
+          <img class="photo" src="https://elpop255.github.io/previews/templates/auto/img/work-2.jpg" width="1024" height="1024"
+          loading="lazy" alt="A pegboard wall of neatly hung hand tools">
+          <figcaption>Sample text: the tool wall, kept in order.</figcaption>
+        </figure>
+        <figure>
+          <img class="photo" src="https://elpop255.github.io/previews/templates/auto/img/work-3.jpg" width="1024" height="1024"
+          loading="lazy" alt="A stack of new tires against a blue block wall">
+          <figcaption>Sample text: tires stacked and ready.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps" id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <p>Sample text: a simple visit, in three steps.</p>
+      <ol class="step-list">
+        <li>
+          <h3>Tell us what you hear</h3>
+          <p>Sample text: describe the sound, the light, or the shake in your
+          own words, and book a day that suits you.</p>
+        </li>
+        <li>
+          <h3>We look it over</h3>
+          <p>Sample text: the car gets checked on the lift, and you get a plain
+          explanation of what was found.</p>
+        </li>
+        <li>
+          <h3>You decide</h3>
+          <p>Sample text: nothing moves forward without your go-ahead, and the
+          old parts are yours to see.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="booking" id="booking">
+    <div class="wrap">
+      <h2>Book a visit</h2>
+      <p>Sample text: leave a note and pick a day that suits you.</p>
+      <form class="booking-form" id="booking-form" novalidate>
+        <div class="field" id="f-name">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name">
+          <p class="error" id="e-name" role="alert">Please enter your name.</p>
+        </div>
+        <div class="field" id="f-phone">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel"
+          inputmode="tel">
+          <p class="hint">Sample text: use the number you answer most easily.</p>
+          <p class="error" id="e-phone" role="alert">Please enter a phone number
+          of at least 7 digits.</p>
+        </div>
+        <div class="field" id="f-day">
+          <label for="day">Preferred day</label>
+          <select id="day" name="day">
+            <option value="">Choose a day…</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+          </select>
+          <p class="error" id="e-day" role="alert">Please choose a day.</p>
+        </div>
+        <div class="field" id="f-msg">
+          <label for="message">Message</label>
+          <textarea id="message" name="message"
+          placeholder="Sample text: what is the car doing?"></textarea>
+          <p class="error" id="e-msg" role="alert">Please add a short note about
+          the car.</p>
+        </div>
+        <button class="btn btn-yellow" type="submit">Request booking</button>
+      </form>
+      <p class="form-note" id="form-note" role="status">
+        Preview only. Nothing was sent.
+      </p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <strong>Matthews Tire</strong>
+      <a href="tel:+19204981458">(920) 498-1458</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Design preview made for Matthews Tire. Sample text and photos. This is not
+    their official website.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById('booking-form');
+  var note = document.getElementById('form-note');
+
+  function setError(fieldId, errorId, show) {
+    document.getElementById(fieldId).classList.toggle('invalid', show);
+    document.getElementById(errorId).hidden = !show;
+  }
+
+  function validPhone(value) {
+    var digits = value.replace(/[^0-9]/g, '');
+    return digits.length >= 7 && digits.length <= 15;
+  }
+
+  function validate() {
+    var ok = true;
+    var name = document.getElementById('name');
+    var phone = document.getElementById('phone');
+    var day = document.getElementById('day');
+    var msg = document.getElementById('message');
+
+    var nameOk = name.value.trim().length > 0;
+    setError('f-name', 'e-name', !nameOk);
+    ok = ok && nameOk;
+
+    var phoneOk = validPhone(phone.value.trim());
+    setError('f-phone', 'e-phone', !phoneOk);
+    ok = ok && phoneOk;
+
+    var dayOk = day.value !== '';
+    setError('f-day', 'e-day', !dayOk);
+    ok = ok && dayOk;
+
+    var msgOk = msg.value.trim().length > 0;
+    setError('f-msg', 'e-msg', !msgOk);
+    ok = ok && msgOk;
+
+    return ok;
+  }
+
+  ['name', 'phone', 'day', 'message'].forEach(function (id) {
+    var el = document.getElementById(id);
+    el.addEventListener('input', function () {
+      var f = el.closest('.field');
+      if (f && f.classList.contains('invalid')) validate();
+    });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    note.classList.remove('show');
+    if (!validate()) {
+      var firstBad = form.querySelector('.field.invalid input, .field.invalid select, .field.invalid textarea');
+      if (firstBad) firstBad.focus();
+      return;
+    }
+    form.reset();
+    note.textContent = 'Preview only. Nothing was sent.';
+    note.classList.add('show');
+  });
+})();
+</script>
+
+</body>
+</html>
