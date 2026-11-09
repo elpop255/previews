@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Milwaukee Heating &amp; Air Conditioning Inc | Heating and cooling</title>
+<meta name="description" content="Design preview: heating and air conditioning repair, installation and maintenance.">
+<style>
+:root{
+  --bg:#f7f5f0;
+  --surface:#fffdf9;
+  --ink:#1f2933;
+  --ink-soft:#4a5561;
+  --line:#ddd8cd;
+  --cool:#3b5a7a;
+  --cool-deep:#2a4560;
+  --cool-tint:#e6edf3;
+  --warm:#b8481a;
+  --warm-deep:#963a13;
+  --warm-tint:#f8e9df;
+  --focus:#1f2933;
+  --radius:10px;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);
+  font-size:1.0625rem;line-height:1.6}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--cool-deep)}
+h1,h2,h3{line-height:1.2;margin:0 0 .5em}
+h2{font-size:clamp(1.6rem,4vw,2.2rem);letter-spacing:-.01em}
+p{margin:0 0 1em;max-width:65ch}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+section{padding:4.5rem 0}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--surface);
+  padding:.75rem 1rem;z-index:20}
+.skip:focus{left:1rem;top:1rem}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;
+  padding:.7rem 1.4rem;border-radius:999px;font:inherit;font-weight:600;
+  text-decoration:none;border:2px solid transparent;cursor:pointer;
+  transition:background-color .2s,transform .2s}
+.btn-warm{background:var(--warm);color:#fff}
+.btn-warm:hover{background:var(--warm-deep)}
+.btn-cool{background:var(--cool);color:#fff}
+.btn-cool:hover{background:var(--cool-deep)}
+.btn-ghost{border-color:currentColor;color:var(--ink);background:transparent}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:var(--surface);
+  border-bottom:1px solid var(--line)}
+header::after{content:"";display:block;height:4px;
+  background:linear-gradient(90deg,var(--cool) 50%,var(--warm) 50%)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  min-height:68px}
+.brand{font-weight:700;font-size:1.15rem;text-decoration:none;color:var(--ink)}
+
+/* hero: the memorable split */
+.hero{padding:2.5rem 0 4rem}
+.hero-grid{display:grid;gap:2rem}
+.hero h1{font-size:clamp(2.2rem,7vw,3.6rem);letter-spacing:-.02em;max-width:16ch}
+.hero h1 .c{color:var(--cool)}
+.hero h1 .w{color:var(--warm)}
+.hero .lead{font-size:1.15rem;color:var(--ink-soft)}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+.photo{background:var(--cool-tint);border-radius:var(--radius);overflow:hidden}
+.hero-photo{position:relative;aspect-ratio:10/7;
+  background:linear-gradient(90deg,var(--cool-tint) 50%,var(--warm-tint) 50%)}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.dial{display:grid;grid-template-columns:1fr 1fr;margin-top:1rem;
+  border-radius:var(--radius);overflow:hidden;font-weight:600}
+.dial span{padding:.8rem 1rem;color:#fff}
+.dial .c{background:var(--cool)}
+.dial .w{background:var(--warm);text-align:right}
+
+/* services: split into two sides, not a card grid */
+.services{background:var(--surface);border-block:1px solid var(--line)}
+.split{display:grid;gap:2.5rem;margin-top:2rem}
+.side h3{display:flex;align-items:center;gap:.6rem;font-size:1.3rem;
+  padding-bottom:.6rem;border-bottom:3px solid}
+.side.cool h3{color:var(--cool-deep);border-color:var(--cool)}
+.side.warm h3{color:var(--warm-deep);border-color:var(--warm)}
+.side ul{list-style:none;margin:0;padding:0}
+.side li{padding:1rem 0;border-bottom:1px solid var(--line)}
+.side li strong{display:block;font-size:1.08rem}
+.side li span{color:var(--ink-soft)}
+.both{margin-top:2rem;padding:1.25rem 1.5rem;border-radius:var(--radius);
+  background:linear-gradient(90deg,var(--cool-tint) 50%,var(--warm-tint) 50%)}
+.both strong{display:block}
+
+/* gallery */
+.gallery{display:grid;gap:1rem;margin-top:2rem}
+.gallery figure{margin:0}
+.gallery .photo{aspect-ratio:4/3}
+.gallery .photo:nth-child(odd){background:var(--warm-tint)}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.gallery figcaption{font-size:.95rem;color:var(--ink-soft);padding-top:.5rem}
+
+/* steps */
+.steps{list-style:none;padding:0;margin:2rem 0 0;display:grid;gap:1.5rem;
+  counter-reset:s}
+.steps li{counter-increment:s;padding-left:3.5rem;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:2.5rem;
+  height:2.5rem;border-radius:50%;display:grid;place-items:center;font-weight:700;
+  border:2px solid var(--ink)}
+.steps h3{font-size:1.15rem;margin-bottom:.25rem}
+
+/* booking */
+.booking{background:var(--cool-tint)}
+form{background:var(--surface);border-radius:var(--radius);padding:1.5rem;
+  border:1px solid var(--line);max-width:640px;margin-top:1.5rem}
+.field{margin-bottom:1.1rem}
+label{display:block;font-weight:600;margin-bottom:.35rem}
+input,select,textarea{width:100%;min-height:48px;padding:.65rem .8rem;font:inherit;
+  color:var(--ink);background:#fff;border:1.5px solid #8a939c;border-radius:8px}
+textarea{min-height:110px;resize:vertical}
+[aria-invalid="true"]{border-color:#b3261e}
+.err{color:#b3261e;font-size:.95rem;margin-top:.3rem;min-height:0}
+.err:empty{display:none}
+.note{margin-top:1rem;padding:.9rem 1rem;border-radius:8px;background:var(--warm-tint);
+  color:var(--warm-deep);font-weight:600}
+.note[hidden]{display:none}
+.hint{color:var(--ink-soft);font-size:.95rem}
+
+/* contact strip */
+.contact{padding:2.5rem 0;color:#fff;
+  background:linear-gradient(90deg,var(--cool-deep) 50%,var(--warm-deep) 50%)}
+.contact .wrap{display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:space-between;gap:1rem}
+.contact p{margin:0;font-size:1.15rem}
+.contact a{color:#fff;font-weight:700;font-size:1.5rem;min-height:48px;
+  display:inline-flex;align-items:center}
+.contact a:focus-visible{outline-color:#fff}
+
+footer{padding:2rem 0;font-size:.95rem;color:var(--ink-soft)}
+
+@media (min-width:760px){
+  .hero-grid{grid-template-columns:1.05fr 1fr;align-items:center}
+  .split{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:1.3fr 1fr 1fr}
+  .gallery figure:first-child .photo{aspect-ratio:auto;height:100%}
+  .gallery figure:first-child{grid-row:span 1}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .steps li{padding-left:0;padding-top:3.5rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top">Milwaukee Heating &amp; Air Conditioning Inc</a>
+    <a class="btn btn-warm" href="tel:+14143921327">Call now</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Cool <span class="c">summers</span>.<br>Warm <span class="w">winters</span>.</h1>
+        <p class="lead">Friendly heating contractor help to keep your home comfortable in every season.</p>
+        <div class="actions">
+          <a class="btn btn-cool" href="#booking" id="bookBtn">Book a visit</a>
+          <a class="btn btn-ghost" href="#services">See services</a>
+        </div>
+      </div>
+      <div>
+        <div class="photo hero-photo">
+          <img src="https://elpop255.github.io/previews/templates/hvac/img/hero.jpg" width="1280" height="896"
+            alt="Indoor furnace connected to metal ductwork in a tidy utility room"
+            onerror="this.remove()">
+        </div>
+        <div class="dial" aria-hidden="true">
+          <span class="c">Cooling</span><span class="w">Heating</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <h2>What we can help with</h2>
+      <p>Sample service list. Cooling on one side, heating on the other.</p>
+      <div class="split">
+        <div class="side cool">
+          <h3>Cooling</h3>
+          <ul>
+            <li><strong>AC repair</strong>
+              <span>Finding out why the air isn't cold and fixing it.</span></li>
+            <li><strong>Thermostat setup</strong>
+              <span>Installing and setting a thermostat that fits your routine.</span></li>
+            <li><strong>Ductwork repair</strong>
+              <span>Sealing leaks and loose joints so air goes where it should.</span></li>
+          </ul>
+        </div>
+        <div class="side warm">
+          <h3>Heating</h3>
+          <ul>
+            <li><strong>Heating repair</strong>
+              <span>Getting a cold house warm again, with clear explanations.</span></li>
+            <li><strong>Furnace installation</strong>
+              <span>Helping you choose and fit a furnace sized for your home.</span></li>
+            <li><strong>Seasonal maintenance</strong>
+              <span>Spring and fall check-ups to keep both systems running well.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <h2>Recent work</h2>
+      <p>Sample photos showing the kind of jobs we take on.</p>
+      <div class="gallery">
+        <figure>
+          <div class="photo"><img src="https://elpop255.github.io/previews/templates/hvac/img/work-1.jpg" width="960" height="720"
+            loading="lazy" alt="Copper refrigerant lines with pressure gauges attached"
+            onerror="this.remove()"></div>
+          <figcaption>Checking refrigerant pressure on a cooling system.</figcaption>
+        </figure>
+        <figure>
+          <div class="photo"><img src="https://elpop255.github.io/previews/templates/hvac/img/work-2.jpg" width="960" height="720"
+            loading="lazy" alt="Outdoor air conditioning unit beside a house at dusk"
+            onerror="this.remove()"></div>
+          <figcaption>An outdoor unit, cleaned and ready for summer.</figcaption>
+        </figure>
+        <figure>
+          <div class="photo"><img src="https://elpop255.github.io/previews/templates/hvac/img/work-3.jpg" width="960" height="720"
+            loading="lazy" alt="Round wall thermostat mounted in a bright hallway"
+            onerror="this.remove()"></div>
+          <figcaption>A new thermostat set up in a hallway.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li><h3>Tell us what's going on</h3>
+          <p>Call or send a booking request with a short note about the problem.</p></li>
+        <li><h3>We take a look</h3>
+          <p>A technician visits, checks the system and explains what they find.</p></li>
+        <li><h3>Back to comfortable</h3>
+          <p>Once you agree on the plan, the work gets done and tidied up.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="booking" id="booking" tabindex="-1">
+    <div class="wrap">
+      <h2>Book a visit</h2>
+      <p>Fill in the form and we'll get back to you to confirm a time.</p>
+      <form id="bookForm" novalidate>
+        <p class="hint">All fields marked * are required.</p>
+        <div class="field">
+          <label for="name">Name *</label>
+          <input id="name" name="name" autocomplete="name" required
+            aria-describedby="name-err">
+          <div class="err" id="name-err" aria-live="polite"></div>
+        </div>
+        <div class="field">
+          <label for="phone">Phone *</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required
+            aria-describedby="phone-err">
+          <div class="err" id="phone-err" aria-live="polite"></div>
+        </div>
+        <div class="field">
+          <label for="day">Preferred day *</label>
+          <select id="day" name="day" required aria-describedby="day-err">
+            <option value="">Choose a day</option>
+            <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+            <option>Thursday</option><option>Friday</option><option>Saturday</option>
+          </select>
+          <div class="err" id="day-err" aria-live="polite"></div>
+        </div>
+        <div class="field">
+          <label for="msg">Short message *</label>
+          <textarea id="msg" name="msg" maxlength="500" required
+            aria-describedby="msg-err"></textarea>
+          <div class="err" id="msg-err" aria-live="polite"></div>
+        </div>
+        <button class="btn btn-warm" type="submit">Request booking</button>
+        <p class="note" id="done" role="status" hidden></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<div class="contact">
+  <div class="wrap">
+    <p>Rather talk it through?</p>
+    <a href="tel:+14143921327">(414) 392-1327</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>Design preview made for Milwaukee Heating &amp; Air Conditioning Inc. Sample text and photos. This is not their official website.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById("bookForm");
+  var done = document.getElementById("done");
+  var rules = {
+    name: function (v) { return v.trim().length >= 2 ? "" : "Please enter your name."; },
+    phone: function (v) {
+      var digits = v.replace(/\D/g, "");
+      if (!v.trim()) return "Please enter your phone number.";
+      return digits.length >= 7 ? "" : "Please enter a valid phone number.";
+    },
+    day: function (v) { return v ? "" : "Please choose a preferred day."; },
+    msg: function (v) { return v.trim() ? "" : "Please add a short message."; }
+  };
+  function check(id) {
+    var el = document.getElementById(id);
+    var msg = rules[id](el.value);
+    document.getElementById(id + "-err").textContent = msg;
+    el.setAttribute("aria-invalid", msg ? "true" : "false");
+    return !msg;
+  }
+  Object.keys(rules).forEach(function (id) {
+    document.getElementById(id).addEventListener("blur", function () {
+      if (this.getAttribute("aria-invalid")) check(id);
+    });
+  });
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    done.hidden = true;
+    var first = null;
+    Object.keys(rules).forEach(function (id) {
+      if (!check(id) && !first) first = id;
+    });
+    if (first) { document.getElementById(first).focus(); return; }
+    done.textContent = "Preview only. Nothing was sent.";
+    done.hidden = false;
+  });
+  document.getElementById("bookBtn").addEventListener("click", function (e) {
+    e.preventDefault();
+    var t = document.getElementById("booking");
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    t.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+    t.focus({ preventScroll: true });
+  });
+})();
+</script>
+</body>
+</html>

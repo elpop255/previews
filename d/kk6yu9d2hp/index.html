@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>BK Landscape Contracting &amp; Supplies | landscaping supply store</title>
+<meta name="description" content="Design preview for BK Landscape Contracting &amp; Supplies, a local landscaping supply store business.">
+<style>
+:root{
+  --green-900:#173a26;
+  --green-700:#24563a;
+  --green-600:#2d6a47;
+  --stripe-a:#2f6d49;
+  --stripe-b:#3a7d55;
+  --soil:#5b3a24;
+  --soil-light:#8a6446;
+  --cream:#f6f0e2;
+  --cream-deep:#ece2cc;
+  --ink:#1d241f;
+  --ink-soft:#4a4f47;
+  --white:#fffdf8;
+  --error:#a3261b;
+  --focus:#e0a33a;
+  --radius:10px;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:Georgia,"Iowan Old Style","Palatino Linotype",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;font-family:var(--font);color:var(--ink);background:var(--cream);line-height:1.6;font-size:1.0625rem}
+img{max-width:100%;display:block}
+[id],input,select,textarea{scroll-margin-top:96px}
+a{color:var(--green-700)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:68rem;margin:0 auto;padding:0 1.25rem}
+.measure{max-width:38rem}
+h1,h2,h3{font-family:var(--serif);line-height:1.15;margin:0 0 .6em;color:var(--green-900)}
+h2{font-size:clamp(1.75rem,4vw,2.4rem)}
+p{margin:0 0 1em}
+section{padding:4.5rem 0}
+.skip{position:absolute;left:-999px;top:0;background:var(--white);padding:.75rem 1rem;z-index:50}
+.skip:focus{left:1rem;top:1rem}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:.7rem 1.4rem;border-radius:999px;font:600 1rem/1 var(--font);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s}
+.btn-primary{background:var(--green-700);color:var(--white)}
+.btn-primary:hover{background:var(--green-900)}
+.btn-soil{background:var(--soil);color:var(--white)}
+.btn-soil:hover{background:#432a19}
+.btn-ghost{background:transparent;color:var(--green-900);border-color:var(--green-700)}
+.btn-ghost:hover{background:var(--green-700);color:var(--white)}
+
+/* Header */
+header.site{position:sticky;top:0;z-index:20;background:rgba(246,240,226,.96);border-bottom:1px solid var(--cream-deep)}
+@supports (backdrop-filter:blur(6px)){header.site{backdrop-filter:blur(6px)}}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:64px}
+.brand{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:var(--green-900);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;min-height:44px}
+.brand svg{flex:none}
+
+/* Hero */
+.hero{padding:2.5rem 0 0;position:relative}
+.hero-grid{display:grid;gap:2rem}
+.hero h1{font-size:clamp(2.3rem,7vw,4rem);letter-spacing:-.01em}
+.hero .lead{font-size:1.2rem;color:var(--ink-soft);max-width:34rem}
+.hero-photo{border-radius:var(--radius);overflow:hidden;background:var(--green-600);aspect-ratio:4/3}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+@media (min-width:860px){
+  .hero{padding-top:4rem}
+  .hero-grid{grid-template-columns:1fr 1.15fr;align-items:center}
+  .hero-photo{aspect-ratio:5/4}
+}
+
+/* Memorable element: mowed-lawn stripe band */
+.lawn{height:72px;margin-top:3.5rem;background:repeating-linear-gradient(115deg,var(--stripe-a) 0 56px,var(--stripe-b) 56px 112px);position:relative}
+.lawn::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:var(--soil)}
+.lawn-thin{height:18px;margin:0}
+.lawn-thin::after{display:none}
+
+/* Services: ruled list, not cards */
+.services{background:var(--cream)}
+.svc-list{list-style:none;margin:2rem 0 0;padding:0;border-top:2px solid var(--green-900)}
+.svc-list li{display:grid;grid-template-columns:2.5rem 1fr;gap:.25rem 1rem;padding:1.15rem 0;border-bottom:1px solid var(--cream-deep)}
+.svc-num{font-family:var(--serif);color:var(--soil-light);font-size:1.1rem;padding-top:.15rem}
+.svc-list h3{font-size:1.3rem;margin:0}
+.svc-list p{grid-column:2;margin:0;color:var(--ink-soft);max-width:36rem}
+@media (min-width:860px){
+  .svc-wrap{display:grid;grid-template-columns:1fr 1.6fr;gap:3rem}
+  .svc-list{margin-top:0}
+  .svc-list li{grid-template-columns:3rem 14rem 1fr;align-items:baseline}
+  .svc-list p{grid-column:3}
+}
+
+/* Gallery: asymmetric */
+.work{background:var(--white)}
+.gallery{display:grid;gap:1rem;margin-top:2rem}
+.gallery figure{margin:0;border-radius:var(--radius);overflow:hidden;background:var(--green-600);aspect-ratio:4/3}
+.gallery figure:nth-child(2){background:var(--soil-light)}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.gallery figcaption{position:absolute;left:-9999px}
+@media (min-width:700px){
+  .gallery{grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto}
+  .gallery figure:first-child{grid-row:span 2;aspect-ratio:auto}
+}
+
+/* Steps */
+.steps ol{list-style:none;padding:0;margin:2rem 0 0;display:grid;gap:2rem;counter-reset:s}
+.steps li{counter-increment:s;padding-left:4rem;position:relative;max-width:30rem}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:2.75rem;height:2.75rem;border-radius:50%;background:var(--soil);color:var(--white);font:700 1.2rem/2.75rem var(--serif);text-align:center}
+.steps h3{font-size:1.25rem;margin-bottom:.3rem}
+.steps p{color:var(--ink-soft);margin:0}
+@media (min-width:860px){.steps ol{grid-template-columns:repeat(3,1fr)}}
+
+/* Booking */
+.booking{background:var(--green-900);color:var(--cream)}
+.booking h2{color:var(--cream)}
+.booking .intro{color:#d9d2bf}
+form{margin-top:2rem;display:grid;gap:1.25rem;max-width:36rem}
+.field label{display:block;font-weight:600;margin-bottom:.35rem}
+.field .req{color:#f0c48a}
+input,select,textarea{width:100%;min-height:48px;padding:.7rem .85rem;border-radius:8px;border:2px solid #b9b19c;background:var(--white);color:var(--ink);font:inherit}
+textarea{min-height:7rem;resize:vertical}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-color:var(--focus)}
+[aria-invalid="true"]{border-color:#f29a8e}
+.err{display:block;margin-top:.35rem;color:#ffc2b8;font-weight:600;font-size:.95rem;min-height:0}
+.err:empty{display:none}
+.notice{padding:1rem 1.15rem;border-radius:8px;background:var(--cream);color:var(--green-900);font-weight:700;border-left:6px solid var(--soil)}
+.notice[hidden]{display:none}
+
+/* Contact strip */
+.contact{padding:2.25rem 0;background:var(--soil);color:var(--white)}
+.contact .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem}
+.contact p{margin:0;font-size:1.15rem}
+.contact a.phone{color:var(--white);font-family:var(--serif);font-size:clamp(1.6rem,5vw,2.2rem);font-weight:700;text-decoration-thickness:2px;text-underline-offset:6px;display:inline-flex;align-items:center;min-height:44px}
+
+footer{padding:2rem 0;background:var(--cream-deep);color:var(--ink-soft);font-size:.95rem}
+footer p{margin:0}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="BK Landscape Contracting &amp; Supplies, back to top">
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="#24563a" d="M12 2C6 6 4 11 6 16c1 2.5 3.5 4 6 4s5-1.5 6-4c2-5 0-10-6-14Zm0 18V9"/><path stroke="#f6f0e2" stroke-width="1.6" fill="none" d="M12 20V9m0 5-3-2m3 0 3-2"/></svg>
+      BK Landscape Contracting &amp; Supplies
+    </a>
+    <a class="btn btn-primary" href="tel:+12628531360">Call now</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-h">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 id="hero-h">Tidy yards,<br>straight lines,<br>room to grow.</h1>
+        <p class="lead">Local landscaping supply store work for lawns, beds, hedges and the outdoor spaces you use every day.</p>
+        <div class="hero-actions">
+          <a class="btn btn-soil" href="#booking">Book a visit</a>
+          <a class="btn btn-ghost" href="#services">See services</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="https://elpop255.github.io/previews/templates/landscaping/img/hero.jpg" width="1280" height="806" alt="Freshly mowed lawn with neat light and dark stripes beside a tall hedge" onerror="this.style.display='none'">
+      </div>
+    </div>
+    <div class="lawn" aria-hidden="true"></div>
+  </section>
+
+  <section class="services" id="services" aria-labelledby="svc-h">
+    <div class="wrap svc-wrap">
+      <div class="measure">
+        <h2 id="svc-h">What we look after</h2>
+        <p>Pick one job or combine a few. Sample descriptions below.</p>
+      </div>
+      <ol class="svc-list">
+        <li><span class="svc-num" aria-hidden="true">01</span><h3>Lawn mowing</h3><p>Even cuts, clean edges and clippings cleared from paths.</p></li>
+        <li><span class="svc-num" aria-hidden="true">02</span><h3>Garden design</h3><p>Layouts and plant choices planned around how you use your yard.</p></li>
+        <li><span class="svc-num" aria-hidden="true">03</span><h3>Tree and shrub trimming</h3><p>Shaping and thinning to keep growth healthy and in bounds.</p></li>
+        <li><span class="svc-num" aria-hidden="true">04</span><h3>Mulch and planting</h3><p>Fresh beds, new plants and a neat layer of mulch on top.</p></li>
+        <li><span class="svc-num" aria-hidden="true">05</span><h3>Irrigation</h3><p>Watering setups and adjustments so plants get what they need.</p></li>
+        <li><span class="svc-num" aria-hidden="true">06</span><h3>Seasonal cleanup</h3><p>Leaves, debris and spent growth cleared as the seasons turn.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="lawn lawn-thin" aria-hidden="true"></div>
+
+  <section class="work" id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <h2 id="work-h">Recent kinds of work</h2>
+      <p class="measure">Sample photos showing the style of landscaping supply store work on offer.</p>
+      <div class="gallery">
+        <figure><img src="https://elpop255.github.io/previews/templates/landscaping/img/work-1.jpg" width="900" height="675" loading="lazy" alt="Flower bed with fresh brown mulch and colorful perennials along a lawn edge" onerror="this.style.display='none'"><figcaption>Mulched flower bed</figcaption></figure>
+        <figure><img src="https://elpop255.github.io/previews/templates/landscaping/img/work-2.jpg" width="900" height="675" loading="lazy" alt="Boxwood hedge trimmed with a flat top and square sides beside a gravel path" onerror="this.style.display='none'"><figcaption>Trimmed hedge</figcaption></figure>
+        <figure><img src="https://elpop255.github.io/previews/templates/landscaping/img/work-3.jpg" width="900" height="675" loading="lazy" alt="Stone backyard patio with seating surrounded by potted plants and borders" onerror="this.style.display='none'"><figcaption>Backyard patio with plants</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps" id="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <h2 id="how-h">How it works</h2>
+      <ol>
+        <li><h3>Tell us about your yard</h3><p>Send a short booking request or give us a call.</p></li>
+        <li><h3>We walk the space</h3><p>We look at what you have and talk through what you want.</p></li>
+        <li><h3>The work gets done</h3><p>We do the job and leave the area clean and tidy.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="booking" id="booking" aria-labelledby="book-h" tabindex="-1">
+    <div class="wrap">
+      <h2 id="book-h">Book a visit</h2>
+      <p class="intro measure">Fill in the form and choose a day that suits you. Fields marked * are required.</p>
+      <form id="bookForm" novalidate>
+        <div class="field">
+          <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
+          <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-err">
+          <span class="err" id="name-err" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="phone">Phone <span class="req" aria-hidden="true">*</span></label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="phone-err">
+          <span class="err" id="phone-err" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="day">Preferred day <span class="req" aria-hidden="true">*</span></label>
+          <select id="day" name="day" required aria-describedby="day-err">
+            <option value="">Choose a day</option>
+            <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+            <option>Thursday</option><option>Friday</option><option>Saturday</option>
+          </select>
+          <span class="err" id="day-err" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="msg">Short message <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="msg" name="msg" maxlength="500" required aria-describedby="msg-err"></textarea>
+          <span class="err" id="msg-err" aria-live="polite"></span>
+        </div>
+        <div><button class="btn btn-soil" type="submit">Request booking</button></div>
+        <p class="notice" id="notice" role="status" hidden>Preview only. Nothing was sent.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="contact" aria-label="Contact">
+    <div class="wrap">
+      <p>Prefer to talk it through?</p>
+      <a class="phone" href="tel:+12628531360">(262) 853-1360</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><p>Design preview made for BK Landscape Contracting &amp; Supplies. Sample text and photos. This is not their official website.</p></div>
+</footer>
+
+<script>
+(function(){
+  var form=document.getElementById('bookForm');
+  var notice=document.getElementById('notice');
+  var rules={
+    name:function(v){return v.trim()?'':'Please enter your name.';},
+    phone:function(v){
+      if(!v.trim())return 'Please enter your phone number.';
+      return (v.replace(/\D/g,'').length>=7)?'':'Please enter a valid phone number.';
+    },
+    day:function(v){return v?'':'Please choose a preferred day.';},
+    msg:function(v){return v.trim()?'':'Please add a short message.';}
+  };
+  function check(id){
+    var el=document.getElementById(id);
+    var msg=rules[id](el.value);
+    document.getElementById(id+'-err').textContent=msg;
+    el.setAttribute('aria-invalid',msg?'true':'false');
+    return !msg;
+  }
+  Object.keys(rules).forEach(function(id){
+    var el=document.getElementById(id);
+    el.addEventListener('blur',function(){if(el.value)check(id);});
+    el.addEventListener('input',function(){if(el.getAttribute('aria-invalid')==='true')check(id);});
+  });
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    notice.hidden=true;
+    var first=null;
+    Object.keys(rules).forEach(function(id){if(!check(id)&&!first)first=id;});
+    if(first){document.getElementById(first).focus();return;}
+    notice.hidden=false;
+  });
+})();
+</script>
+</body>
+</html>

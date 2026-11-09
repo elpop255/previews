@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Cyperess Dry Cleaning | dry cleaner</title>
+<meta name="description" content="Design preview for Cyperess Dry Cleaning, a dry cleaner business.">
+<style>
+:root{
+  --bg:#fbf9f4;
+  --bg-alt:#eef5f2;
+  --surface:#ffffff;
+  --ink:#1f2f2e;
+  --ink-soft:#4a5c5a;
+  --aqua:#9fd6d2;
+  --aqua-deep:#1d6b68;
+  --aqua-deeper:#155452;
+  --sage:#b9c9ad;
+  --sage-deep:#4f6345;
+  --line:#d9e3de;
+  --error:#a3321f;
+  --focus:#155452;
+  --radius:14px;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.6 var(--font)}
+img{display:block;max-width:100%}
+a{color:var(--aqua-deep)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1100px,100% - 2.5rem);margin-inline:auto}
+.measure{max-width:62ch}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0 0 .5em}
+h2{font-size:clamp(1.7rem,4vw,2.4rem)}
+section{padding:4.5rem 0}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;z-index:99;background:var(--surface);padding:.6rem 1rem}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.7rem 1.4rem;border-radius:999px;font:600 1rem var(--font);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .2s,transform .2s}
+.btn-primary{background:var(--aqua-deep);color:#fff}
+.btn-primary:hover{background:var(--aqua-deeper)}
+.btn-ghost{background:transparent;color:var(--aqua-deeper);border-color:var(--aqua-deep)}
+.btn-ghost:hover{background:var(--bg-alt)}
+
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:68px}
+.brand{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:.5rem;min-height:44px}
+.brand::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--aqua);box-shadow:8px -6px 0 -3px var(--sage)}
+
+/* Hero: arched window photo is the one memorable element */
+.hero{padding:2.5rem 0 4rem}
+.hero-grid{display:grid;gap:2.5rem;align-items:center}
+.hero h1{font-size:clamp(2.3rem,7vw,3.8rem);letter-spacing:-.01em}
+.hero p{color:var(--ink-soft);font-size:1.15rem;max-width:44ch}
+.arch{position:relative;aspect-ratio:4/5;border-radius:999px 999px var(--radius) var(--radius);overflow:hidden;background:var(--aqua);box-shadow:0 0 0 10px var(--bg),0 0 0 11px var(--sage)}
+.arch img{width:100%;height:100%;object-fit:cover}
+.arch::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);transform:translateX(-100%);animation:shine 2.6s ease-out .6s 1 forwards}
+@keyframes shine{to{transform:translateX(100%)}}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+
+/* Services: a quiet list, not cards */
+.services{background:var(--surface);border-block:1px solid var(--line)}
+.svc{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:0 3rem}
+.svc li{display:grid;grid-template-columns:2.4rem 1fr;gap:.25rem 1rem;padding:1.25rem 0;border-top:1px solid var(--line)}
+.svc span{grid-row:span 2;font-family:var(--serif);color:var(--sage-deep);font-size:1.1rem;padding-top:.15rem}
+.svc h3{font-family:var(--font);font-size:1.1rem;margin:0}
+.svc p{margin:0;color:var(--ink-soft)}
+
+.gallery{display:grid;gap:1rem;margin-top:2rem}
+.gallery figure{margin:0}
+.gallery .ph{border-radius:var(--radius);overflow:hidden;aspect-ratio:1;background:var(--sage)}
+.gallery figure:nth-child(2) .ph{background:var(--aqua)}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.gallery figcaption{font-size:.95rem;color:var(--ink-soft);margin-top:.5rem}
+
+.how{background:var(--bg-alt)}
+.steps{list-style:none;margin:2rem 0 0;padding:0;counter-reset:s;display:grid;gap:1.75rem}
+.steps li{counter-increment:s;padding-left:3.5rem;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:2.5rem;height:2.5rem;border-radius:50%;background:var(--surface);border:2px solid var(--sage);display:grid;place-items:center;font-family:var(--serif);font-weight:600;color:var(--sage-deep)}
+.steps h3{font-family:var(--font);font-size:1.1rem;margin:.35rem 0 .2rem}
+.steps p{margin:0;color:var(--ink-soft)}
+
+form{margin-top:2rem;display:grid;gap:1.25rem;max-width:560px}
+label{display:block;font-weight:600;margin-bottom:.35rem}
+.opt{font-weight:400;color:var(--ink-soft)}
+input,select,textarea{width:100%;min-height:48px;padding:.7rem .9rem;font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid #8fa39e;border-radius:10px}
+textarea{min-height:110px;resize:vertical}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--focus);outline-offset:1px}
+[aria-invalid="true"]{border-color:var(--error)}
+.err{color:var(--error);font-size:.95rem;margin:.35rem 0 0;min-height:0}
+.err:empty{display:none}
+.notice{padding:1rem 1.2rem;border-radius:10px;background:var(--bg-alt);border-left:4px solid var(--aqua-deep);font-weight:600}
+.notice[hidden]{display:none}
+
+.contact{background:var(--aqua-deeper);color:#fff;padding:2.5rem 0}
+.contact .bar{flex-wrap:wrap}
+.contact p{margin:0;font-size:1.15rem}
+.contact a.tel{color:#fff;font-family:var(--serif);font-size:clamp(1.6rem,5vw,2.2rem);text-decoration:none;display:inline-flex;min-height:44px;align-items:center}
+.contact a.tel:hover{text-decoration:underline}
+.contact :focus-visible{outline-color:#fff}
+
+footer{padding:2rem 0;font-size:.95rem;color:var(--ink-soft)}
+
+@media (min-width:720px){
+  .hero-grid{grid-template-columns:1.1fr .9fr}
+  .svc{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:1.3fr 1fr 1fr}
+  .gallery figure:first-child .ph{aspect-ratio:auto;height:100%}
+  .gallery figure:first-child{display:flex;flex-direction:column}
+  .gallery figure:first-child .ph{flex:1}
+  .steps{grid-template-columns:repeat(3,1fr);gap:2rem}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top">Cyperess Dry Cleaning</a>
+    <a class="btn btn-primary" href="tel:+14149639035">Call now</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Come home to a calm, fresh space.</h1>
+        <p>Friendly, careful dry cleaner for homes and workplaces, done room by room.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#booking">Book a visit</a>
+          <a class="btn btn-ghost" href="#services">See services</a>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="https://elpop255.github.io/previews/templates/cleaning/img/hero.jpg" alt="A bright, sunlit living room with a tidy sofa and plants" width="1600" height="1000" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <h2>What we clean</h2>
+      <p class="measure">Sample service descriptions for this preview.</p>
+      <ul class="svc">
+        <li><span>01</span><h3>House cleaning</h3><p>Regular upkeep for kitchens, baths, floors and living areas.</p></li>
+        <li><span>02</span><h3>Deep cleaning</h3><p>A detailed top-to-bottom clean, including the spots that get missed.</p></li>
+        <li><span>03</span><h3>Move-in and move-out</h3><p>Empty rooms cleaned so the next chapter starts fresh.</p></li>
+        <li><span>04</span><h3>Office cleaning</h3><p>Desks, shared spaces and break rooms kept neat for your team.</p></li>
+        <li><span>05</span><h3>Window cleaning</h3><p>Clear glass, wiped frames and sills for more daylight inside.</p></li>
+        <li><span>06</span><h3>Post-construction cleanup</h3><p>Dust and debris cleared after a renovation or build.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <h2>Recent work</h2>
+      <p class="measure">Sample photos showing the kind of finish we aim for.</p>
+      <div class="gallery">
+        <figure><div class="ph"><img src="https://elpop255.github.io/previews/templates/cleaning/img/work-1.jpg" alt="A tidy kitchen with clear counters and sage cabinets" loading="lazy" width="900" height="900"></div><figcaption>A kitchen after a routine clean</figcaption></figure>
+        <figure><div class="ph"><img src="https://elpop255.github.io/previews/templates/cleaning/img/work-2.jpg" alt="Neatly folded white and aqua towels on a wooden shelf" loading="lazy" width="900" height="900"></div><figcaption>Fresh towels, neatly folded</figcaption></figure>
+        <figure><div class="ph"><img src="https://elpop255.github.io/previews/templates/cleaning/img/work-3.jpg" alt="Spray bottles, sponges, a brush and cloths on a counter" loading="lazy" width="900" height="900"></div><figcaption>Our everyday supplies</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li><h3>Tell us what you need</h3><p>Send a short request or give us a call about your space.</p></li>
+        <li><h3>Pick a day</h3><p>Choose a day that suits you and we confirm the details.</p></li>
+        <li><h3>Enjoy a fresh space</h3><p>We clean with care, then you walk back into calm.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="booking">
+    <div class="wrap">
+      <h2>Request a booking</h2>
+      <p class="measure">Fields marked required must be filled in.</p>
+      <form id="bookForm" novalidate>
+        <div>
+          <label for="name">Name (required)</label>
+          <input id="name" name="name" autocomplete="name" required aria-describedby="name-err">
+          <p class="err" id="name-err" aria-live="polite"></p>
+        </div>
+        <div>
+          <label for="phone">Phone (required)</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="phone-err">
+          <p class="err" id="phone-err" aria-live="polite"></p>
+        </div>
+        <div>
+          <label for="day">Preferred day (required)</label>
+          <select id="day" name="day" required aria-describedby="day-err">
+            <option value="">Choose a day</option>
+            <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+            <option>Thursday</option><option>Friday</option><option>Saturday</option>
+          </select>
+          <p class="err" id="day-err" aria-live="polite"></p>
+        </div>
+        <div>
+          <label for="msg">Short message <span class="opt">(optional)</span></label>
+          <textarea id="msg" name="msg" maxlength="500" aria-describedby="msg-err"></textarea>
+          <p class="err" id="msg-err" aria-live="polite"></p>
+        </div>
+        <div><button class="btn btn-primary" type="submit">Request booking</button></div>
+        <p class="notice" id="notice" role="status" hidden>Preview only. Nothing was sent.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="contact" aria-label="Contact">
+    <div class="wrap bar">
+      <p>Prefer to talk it through?</p>
+      <a class="tel" href="tel:+14149639035">(414) 963-9035</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Design preview made for Cyperess Dry Cleaning. Sample text and photos. This is not their official website.</div>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll("img").forEach(function(img){
+    img.addEventListener("error",function(){img.style.visibility="hidden";});
+  });
+  var form=document.getElementById("bookForm"),notice=document.getElementById("notice");
+  var rules={
+    name:function(v){return v.trim().length<2?"Please enter your name.":"";},
+    phone:function(v){var d=v.replace(/\D/g,"");return !d?"Please enter a phone number.":(d.length<7||d.length>15?"Please enter a valid phone number.":"");},
+    day:function(v){return v?"":"Please choose a preferred day.";},
+    msg:function(v){return v.length>500?"Please keep the message under 500 characters.":"";}
+  };
+  function check(id){
+    var el=document.getElementById(id),m=rules[id](el.value);
+    document.getElementById(id+"-err").textContent=m;
+    el.setAttribute("aria-invalid",m?"true":"false");
+    return !m;
+  }
+  Object.keys(rules).forEach(function(id){
+    var el=document.getElementById(id);
+    el.addEventListener("blur",function(){if(el.value)check(id);});
+    el.addEventListener("input",function(){if(el.getAttribute("aria-invalid")==="true")check(id);});
+  });
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    notice.hidden=true;
+    var first=null;
+    Object.keys(rules).forEach(function(id){if(!check(id)&&!first)first=id;});
+    if(first){document.getElementById(first).focus();return;}
+    notice.hidden=false;
+    form.reset();
+    Object.keys(rules).forEach(function(id){document.getElementById(id).removeAttribute("aria-invalid");});
+  });
+})();
+</script>
+</body>
+</html>

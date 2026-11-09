@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Chanov Enterprises LLC. Towing &amp; Auto Body Shop — towing service</title>
+<meta name="description" content="Local towing service: towing, roadside assistance, jump starts, tire changes, lockout help and vehicle transport. Design preview.">
+<style>
+  :root {
+    --ink: #16181a;
+    --ink-soft: #232629;
+    --ink-line: #34383c;
+    --paper: #f4f2ee;
+    --paper-dim: #e5e2db;
+    --text: #1c1e21;
+    --text-soft: #565b60;
+    --amber: #d97a06;
+    --amber-deep: #a85c04;
+    --amber-pale: #fbe9d2;
+    --focus: #b4540a;
+    --shadow: 0 10px 24px rgba(22, 24, 26, .16);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--text);
+    font: 1rem/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 62rem; margin: 0 auto; padding: 0 1.25rem; }
+  .prose { max-width: 72ch; }
+
+  /* Header */
+  .topbar {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--ink);
+    color: var(--paper);
+    border-bottom: 2px solid var(--ink-line);
+  }
+  .topbar .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; min-height: 4rem; flex-wrap: wrap; padding-top: .5rem; padding-bottom: .5rem;
+  }
+  .brand {
+    display: flex; align-items: center; gap: .65rem;
+    font-weight: 700; font-size: 1.05rem; letter-spacing: .01em;
+    color: inherit; text-decoration: none;
+  }
+  /* Memorable element: the beacon — a slowly pulsing signal light */
+  .beacon {
+    width: .8rem; height: .8rem; border-radius: 50%;
+    background: var(--amber);
+    box-shadow: 0 0 0 3px rgba(217, 122, 6, .25);
+    animation: beacon 3.2s ease-in-out infinite;
+    flex: none;
+  }
+  @keyframes beacon {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(217, 122, 6, .25); opacity: 1; }
+    50%      { box-shadow: 0 0 0 7px rgba(217, 122, 6, .08); opacity: .75; }
+  }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 44px; padding: .6rem 1.3rem;
+    border-radius: .375rem; border: 2px solid transparent;
+    font: inherit; font-weight: 600; text-decoration: none; cursor: pointer;
+  }
+  .btn-solid { background: var(--amber); color: #1a1206; }
+  .btn-solid:hover { background: #ef8d13; }
+  .btn-line { background: transparent; color: var(--paper); border-color: var(--paper); }
+  .btn-line:hover { background: rgba(244, 242, 238, .12); }
+  .btn-ink { background: var(--ink); color: var(--paper); }
+  .btn-ink:hover { background: #000; }
+
+  /* Hero */
+  .hero { background: var(--ink); color: var(--paper); padding: 3rem 0 0; }
+  .hero h1 {
+    font-size: clamp(1.9rem, 5.5vw, 3rem);
+    line-height: 1.15; margin: 0 0 .75rem; font-weight: 800;
+    max-width: 24ch;
+  }
+  .hero h1 em { font-style: normal; color: var(--amber); }
+  .hero p.lede { color: #c9c6bf; max-width: 52ch; margin: 0 0 1.75rem; }
+  .hero-actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .hero-photo { margin: 0; background: var(--ink-soft); }
+  .hero-photo img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+  .photo-frame { position: relative; }
+  .photo-frame figcaption {
+    background: var(--ink-soft); color: #b9b6af;
+    font-size: .85rem; padding: .55rem 1rem;
+  }
+  .img-fallback {
+    background: var(--ink-soft);
+    color: #b9b6af; font-size: .9rem;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 12rem;
+  }
+
+  /* Hazard stripe divider — the second half of the beacon motif */
+  .hazard {
+    height: 10px;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--amber) 0 14px,
+      var(--ink) 14px 28px
+    );
+  }
+
+  /* Sections */
+  section { padding: 3.25rem 0; }
+  .alt { background: var(--paper-dim); }
+  h2 {
+    font-size: clamp(1.45rem, 3.5vw, 2rem);
+    line-height: 1.2; margin: 0 0 1.5rem; font-weight: 750;
+  }
+  .sec-intro { color: var(--text-soft); margin: -0.75rem 0 1.75rem; }
+
+  /* Services: ruled list, not cards */
+  .svc { list-style: none; margin: 0; padding: 0; border-top: 1px solid #c9c5bb; }
+  .svc li {
+    display: grid; grid-template-columns: 3.25rem 1fr; gap: .35rem 1rem;
+    padding: 1.1rem 0; border-bottom: 1px solid #c9c5bb;
+  }
+  .svc .no {
+    font-weight: 700; color: var(--amber-deep); font-variant-numeric: tabular-nums;
+  }
+  .svc h3 { margin: 0; font-size: 1.05rem; font-weight: 700; }
+  .svc p { margin: .1rem 0 0; color: var(--text-soft); }
+
+  /* Gallery */
+  .gal { display: grid; gap: 1.25rem; }
+  .gal figure { margin: 0; background: var(--ink); }
+  .gal img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+
+  /* How it works */
+  .steps { list-style: none; counter-reset: step; margin: 0; padding: 0; max-width: 46rem; }
+  .steps li {
+    counter-increment: step;
+    display: grid; grid-template-columns: 3.25rem 1fr; gap: 1rem;
+    padding: 1.35rem 0; border-bottom: 1px solid #c9c5bb;
+  }
+  .steps li::before {
+    content: counter(step);
+    width: 2.25rem; height: 2.25rem; border-radius: 50%;
+    background: var(--amber); color: #1a1206;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+  }
+  .steps h3 { margin: 0 0 .15rem; font-size: 1.05rem; }
+  .steps p { margin: 0; color: var(--text-soft); }
+
+  /* Booking */
+  .book-grid { display: grid; gap: 2rem; }
+  .form { max-width: 34rem; }
+  .field { margin-bottom: 1.15rem; }
+  .field label { display: block; font-weight: 600; margin-bottom: .3rem; }
+  .field input, .field select, .field textarea {
+    width: 100%; min-height: 44px; padding: .6rem .75rem;
+    font: inherit; color: var(--text);
+    background: #fff; border: 2px solid #b7b2a7; border-radius: .375rem;
+  }
+  .field textarea { min-height: 7rem; resize: vertical; }
+  .field [aria-invalid="true"] { border-color: #b3261e; }
+  .err { display: none; color: #90211a; font-size: .9rem; margin-top: .3rem; font-weight: 600; }
+  .err.show { display: block; }
+  .sent {
+    display: none; margin-top: 1rem; padding: .85rem 1rem;
+    background: var(--amber-pale); border: 2px solid var(--amber-deep);
+    border-radius: .375rem; color: #5c3403; font-weight: 600;
+  }
+  .sent.show { display: block; }
+
+  /* Contact strip */
+  .strip {
+    background: var(--ink); color: var(--paper);
+    padding: 2rem 0;
+  }
+  .strip .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .strip strong { font-size: 1.15rem; }
+  .strip a { color: var(--amber); font-weight: 700; text-decoration: none; font-size: 1.25rem; }
+  .strip a:hover { text-decoration: underline; }
+
+  footer {
+    background: var(--ink); color: #a5a29b;
+    border-top: 1px solid var(--ink-line);
+    padding: 1.5rem 0; font-size: .9rem;
+  }
+
+  @media (min-width: 640px) {
+    .gal { grid-template-columns: repeat(3, 1fr); }
+    .book-grid { grid-template-columns: 1fr 1.2fr; align-items: start; }
+    .svc li { grid-template-columns: 3.25rem 16rem 1fr; align-items: baseline; }
+    .svc p { margin: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .beacon { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="beacon" aria-hidden="true"></span>Chanov Enterprises LLC. Towing &amp; Auto Body Shop</a>
+    <a class="btn btn-solid" href="tel:+14147360233">Call now</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="wrap">
+      <h1 id="hero-h">Stuck on the shoulder? We bring the <em>towing service</em> to you.</h1>
+      <p class="lede">A steady hand when your day stalls — local towing and roadside help, handled calmly from first call to safe drop-off.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="tel:+14147360233">Call now</a>
+        <a class="btn btn-line" href="#book">Book a visit</a>
+      </div>
+      <figure class="hero-photo">
+        <div class="photo-frame">
+          <img src="https://elpop255.github.io/previews/templates/towing/img/hero.jpg" alt="Flatbed truck on an open road at dusk, amber lights glowing" width="1280" height="864" onerror="this.closest('.photo-frame').classList.add('img-fallback'); this.remove();">
+        </div>
+      </figure>
+    </div>
+    <div class="hazard" role="presentation"></div>
+  </section>
+
+  <section aria-labelledby="svc-h">
+    <div class="wrap">
+      <h2 id="svc-h">What we do</h2>
+      <ul class="svc">
+        <li>
+          <span class="no" aria-hidden="true">01</span>
+          <h3>Local towing</h3>
+          <p>Short runs across the area or a longer haul — your vehicle rides on the flatbed, strapped and secured.</p>
+        </li>
+        <li>
+          <span class="no" aria-hidden="true">02</span>
+          <h3>Roadside assistance</h3>
+          <p>Stopped on the shoulder or in a lot? We come out and deal with the problem where the vehicle sits.</p>
+        </li>
+        <li>
+          <span class="no" aria-hidden="true">03</span>
+          <h3>Jump starts</h3>
+          <p>A flat battery doesn't need a workshop. We bring a booster pack and get you running again.</p>
+        </li>
+        <li>
+          <span class="no" aria-hidden="true">04</span>
+          <h3>Tire changes</h3>
+          <p>We fit your spare at the roadside, torque it properly, and check the others while we're there.</p>
+        </li>
+        <li>
+          <span class="no" aria-hidden="true">05</span>
+          <h3>Lockout help</h3>
+          <p>Keys locked in the car? Non-destructive entry first — no broken seals, no scraped paint.</p>
+        </li>
+        <li>
+          <span class="no" aria-hidden="true">06</span>
+          <h3>Vehicle transport</h3>
+          <p>Moving a project car, a bike, or a non-runner between two addresses — loaded low and hauled gently.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="alt" aria-labelledby="work-h">
+    <div class="wrap">
+      <h2 id="work-h">On the job</h2>
+      <div class="gal">
+        <figure class="photo-frame">
+          <img src="https://elpop255.github.io/previews/templates/towing/img/work-1.jpg" alt="Close-up of a tow hook and heavy chain on a truck bed" loading="lazy" width="1024" height="960" onerror="this.closest('.photo-frame').classList.add('img-fallback'); this.remove();">
+          <figcaption>Hook and chain, checked before every lift</figcaption>
+        </figure>
+        <figure class="photo-frame">
+          <img src="https://elpop255.github.io/previews/templates/towing/img/work-2.jpg" alt="Empty road at dusk with amber hazard lights along the shoulder" loading="lazy" width="1280" height="864" onerror="this.closest('.photo-frame').classList.add('img-fallback'); this.remove();">
+          <figcaption>Scene marked before anyone steps onto the road</figcaption>
+        </figure>
+        <figure class="photo-frame">
+          <img src="https://elpop255.github.io/previews/templates/towing/img/work-3.jpg" alt="Tow truck parked on a road shoulder, seen from behind" loading="lazy" width="1280" height="864" onerror="this.closest('.photo-frame').classList.add('img-fallback'); this.remove();">
+          <figcaption>Flatbed ready at the shoulder</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="how-h">
+    <div class="wrap">
+      <h2 id="how-h">How it works</h2>
+      <ol class="steps">
+        <li>
+          <div>
+            <h3>Call or book</h3>
+            <p>Tell us where the vehicle is and what happened. A short phone call or the form below is all it takes.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>We roll out</h3>
+            <p>The truck heads your way with the right gear for the job, and we confirm an arrival window with you.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Sorted</h3>
+            <p>Fixed at the roadside, or loaded onto the flatbed and taken where you want it. You're back in motion.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="alt" id="book" aria-labelledby="book-h">
+    <div class="wrap book-grid">
+      <div>
+        <h2 id="book-h">Book a visit</h2>
+        <p class="prose" style="color: var(--text-soft)">Tell us a little about the job and we'll get back to you to set a time. If it's urgent, calling is faster.</p>
+      </div>
+      <form class="form" id="book-form" novalidate>
+        <div class="field">
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+          <p class="err" id="e-name" data-for="f-name">Please enter your name.</p>
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone</label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+          <p class="err" id="e-phone" data-for="f-phone">Please enter a phone number we can reach you on.</p>
+        </div>
+        <div class="field">
+          <label for="f-day">Preferred day</label>
+          <select id="f-day" name="day" required>
+            <option value="">Choose a day…</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+            <option>Sunday</option>
+          </select>
+          <p class="err" id="e-day" data-for="f-day">Please pick a preferred day.</p>
+        </div>
+        <div class="field">
+          <label for="f-msg">Short message</label>
+          <textarea id="f-msg" name="message" required></textarea>
+          <p class="err" id="e-message" data-for="f-msg">Please add a line about the job — location and what the vehicle needs.</p>
+        </div>
+        <button class="btn btn-ink" type="submit">Request booking</button>
+        <p class="sent" id="sent" role="status">Preview only. Nothing was sent.</p>
+      </form>
+    </div>
+  </section>
+
+  <div class="hazard" role="presentation"></div>
+
+  <section class="strip" aria-label="Contact">
+    <div class="wrap">
+      <strong>Prefer to talk it through?</strong>
+      <a href="tel:+14147360233">(414) 736-0233</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">Design preview made for Chanov Enterprises LLC. Towing &amp; Auto Body Shop. Sample text and photos. This is not their official website.</div>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById('book-form');
+  var sent = document.getElementById('sent');
+
+  function check(input) {
+    var err = document.getElementById('e-' + input.name);
+    var ok = input.value.trim().length > 0;
+    input.setAttribute('aria-invalid', ok ? 'false' : 'true');
+    err.classList.toggle('show', !ok);
+    return ok;
+  }
+
+  var inputs = form.querySelectorAll('input, select, textarea');
+  inputs.forEach(function (input) {
+    input.addEventListener('input', function () {
+      if (input.getAttribute('aria-invalid') === 'true') check(input);
+    });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var firstBad = null;
+    inputs.forEach(function (input) {
+      if (!check(input) && !firstBad) firstBad = input;
+    });
+    if (firstBad) {
+      firstBad.focus();
+      sent.classList.remove('show');
+    } else {
+      form.reset();
+      inputs.forEach(function (input) {
+        input.setAttribute('aria-invalid', 'false');
+      });
+      sent.classList.add('show');
+      sent.focus && sent.setAttribute('tabindex', '-1');
+      sent.focus();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
